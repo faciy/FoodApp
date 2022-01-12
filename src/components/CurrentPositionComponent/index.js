@@ -29,8 +29,18 @@ const CurrentPositionComponent = () => {
     navigate('AdresseMap');
   };
 
-  const handleActiveLocation = () => {
-    console.log('Buton');
+  const handleActiveLocation = async () => {
+    // try {
+    //   const granted = await PermissionsAndroid.request(
+    //     PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+    //   );
+    //   if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+    //     console.log('You can use the location');
+    //   } else {
+    //     console.log('You cannot use the location');
+    //   }
+    // } catch (err) {}
+    navigate('Home');
   };
 
   return (

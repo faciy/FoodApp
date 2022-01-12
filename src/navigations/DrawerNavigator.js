@@ -2,6 +2,7 @@ import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {useWindowDimensions} from 'react-native';
 import HomeNavigator from './HomeNavigator';
+import DrawerContent from '../components/DrawerContent';
 
 const Drawer = createDrawerNavigator();
 
@@ -10,6 +11,7 @@ const DrawerNavigator = () => {
 
   return (
     <Drawer.Navigator
+      drawerContent={props => <DrawerContent {...props} />}
       screenOptions={{
         headerShown: false,
         drawerStyle: {

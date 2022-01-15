@@ -20,7 +20,6 @@ const DrawerNavigator = () => {
         },
       }}>
       <Drawer.Screen name="HomeNavigator" component={HomeNavigator} />
-      {/* <Drawer.Screen name="Article" component={Article} /> */}
     </Drawer.Navigator>
   );
 };

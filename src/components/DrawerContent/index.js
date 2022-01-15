@@ -17,7 +17,7 @@ import {DrawerItem} from '@react-navigation/drawer';
 import {CollapsibleHeaderScrollView} from 'react-native-collapsible-header-views';
 
 const DrawerContent = props => {
-  const {goBack} = useNavigation();
+  const {goBack, navigate} = useNavigation();
 
   const sheetRef = React.useRef('BottomSheet');
 
@@ -35,7 +35,8 @@ const DrawerContent = props => {
         <TouchableOpacity onPress={() => goBack()}>
           <Image source={rightArrow} style={{width: 20, height: 20}} />
         </TouchableOpacity>
-        <View
+        <TouchableOpacity
+          onPress={() => navigate('Help')}
           style={{
             backgroundColor: '#23A082',
             width: 100,
@@ -50,7 +51,7 @@ const DrawerContent = props => {
             style={{width: 20, height: 20, tintColor: 'white'}}
           />
           <Text style={{color: 'white', fontSize: 18}}>Aide</Text>
-        </View>
+        </TouchableOpacity>
       </View>
       <Text style={{padding: 20, fontSize: 25, fontWeight: 'bold'}}>
         Bonjour Charles
@@ -102,7 +103,7 @@ const DrawerContent = props => {
                     <Image source={user} style={{width: 20, height: 20}} />
                   </View>
                 )}
-                onPress={() => {}}
+                onPress={() => navigate('MesCommandes')}
               />
               {/* INFORMATION  */}
               <DrawerItem
@@ -130,7 +131,7 @@ const DrawerContent = props => {
                     <Image source={user} style={{width: 20, height: 20}} />
                   </View>
                 )}
-                onPress={() => {}}
+                onPress={() => navigate('InformationProfil')}
               />
               {/* BAR  */}
               <View
@@ -168,7 +169,7 @@ const DrawerContent = props => {
                     <Image source={user} style={{width: 20, height: 20}} />
                   </View>
                 )}
-                onPress={() => {}}
+                onPress={() => navigate('CodePromo')}
               />
               {/* FAQ  */}
               <DrawerItem

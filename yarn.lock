@@ -5840,7 +5840,7 @@
     "invariant" "^2.2.4"
     "prop-types" "^15.7.2"
 
-"react-native-interactable-reanimated@>=0.0.8":
+"react-native-interactable-reanimated@^0.0.15", "react-native-interactable-reanimated@>=0.0.8":
   "integrity" "sha512-WvzeHuSObx4eCJfTNMHnu1zxpczU5wKSs4DfBANCWy0nSaf/M4RWspdncfEs6azSSJODtd+SWl5I2/380NfzFg=="
   "resolved" "https://registry.npmjs.org/react-native-interactable-reanimated/-/react-native-interactable-reanimated-0.0.15.tgz"
   "version" "0.0.15"

@@ -99,47 +99,44 @@ const datas = [
   },
 ];
 
-const DetailsRestaurantComponent = () => {
+const DetailsAlimentComponent = () => {
   const [isButonActive, setIsButonActive] = useState(false);
   const {navigate, toggleDrawer} = useNavigation();
 
   const renderItem = () => {
     return (
-      <View style={{top: '80%', padding: 20}}>
+      <View style={{top: '130%', padding: 20}}>
         <TouchableOpacity
-          onPress={() => navigate('DetailsAliment')}
+          onPress={() => navigate('AddCart')}
           style={{
-            // backgroundColor: 'red',
-            width: '100%',
-            height: 180,
-            borderRadius: 10,
-            borderColor: 'orange',
-            borderWidth: 2,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
           }}>
-          <Text style={{textAlign: 'center', fontSize: 25}}>
-            TOP DES VENTES
-          </Text>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginTop: 20,
-              paddingHorizontal: 20,
-            }}>
-            <Image
-              source={food}
-              style={{width: 100, height: 100, borderRadius: 50}}
-            />
-            <Image
-              source={food}
-              style={{width: 100, height: 100, borderRadius: 50}}
-            />
-            <Image
-              source={food}
-              style={{width: 100, height: 100, borderRadius: 50}}
-            />
+          <Image
+            source={food}
+            style={{width: 80, height: 80, borderRadius: 80}}
+          />
+          <View>
+            <Text>Crêpe Au Sucre</Text>
+            <Text>
+              Couche fine de pâte,faite {'\n'} à base de farine chocolat {'\n'}{' '}
+              nutella et d'oeufs
+            </Text>
+          </View>
+          <View>
+            <Text>2000 XOF</Text>
+            <Text style={{textAlign: 'center', top: 20, fontSize: 20}}>+</Text>
           </View>
         </TouchableOpacity>
+        <View
+          style={{
+            backgroundColor: 'grey',
+            width: '100%',
+            height: 0.5,
+            top: 15,
+          }}
+        />
       </View>
     );
   };
@@ -274,6 +271,16 @@ const DetailsRestaurantComponent = () => {
                   </View>
                 </View>
               </View>
+              <View style={{top: '70%'}}>
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                  }}>
+                  CREPES
+                </Text>
+              </View>
             </View>
           }
           ListFooterComponent={<View style={{height: 200}} />}
@@ -283,4 +290,4 @@ const DetailsRestaurantComponent = () => {
   );
 };
 
-export default DetailsRestaurantComponent;
+export default DetailsAlimentComponent;

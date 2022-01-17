@@ -73,7 +73,10 @@ const CurrentPositionComponent = () => {
         <Image source={foodDelivery} style={{width: 300, height: 300}} />
       </View>
       {/* BUTTON POSITION  */}
-      <Button onPress={() => handleActiveLocation()} />
+      <Button
+        title="Utiliser la position actuelle"
+        onPress={() => handleActiveLocation()}
+      />
     </Container>
   );
 };

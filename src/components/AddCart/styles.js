@@ -5,11 +5,11 @@ export default StyleSheet.create({
     flex: 1,
   },
   header: {
-    flex: 1.5,
-    // backgroundColor: 'red',
+    flex: 3,
+    backgroundColor: 'red',
   },
-  body: {
-    // flex: 4.5,
-    // padding: 20,
+  footer: {
+    flex: 3,
+    backgroundColor: 'white',
   },
 });

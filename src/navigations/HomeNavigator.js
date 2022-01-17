@@ -14,6 +14,8 @@ import InformationProfil from '../screens/InformationProfil';
 import CodePromo from '../screens/CodePromo';
 import Help from '../screens/Help';
 import DetailsRestaurant from '../screens/DetailsRestaurant';
+import DetailsAliment from '../screens/DetailsAliment';
+import AddCart from '../screens/AddCart';
 
 const HomeNavigator = () => {
   const HomeStack = createStackNavigator();
@@ -40,6 +42,8 @@ const HomeNavigator = () => {
         name="DetailsRestaurant"
         component={DetailsRestaurant}
       />
+      <HomeStack.Screen name="DetailsAliment" component={DetailsAliment} />
+      <HomeStack.Screen name="AddCart" component={AddCart} />
     </HomeStack.Navigator>
   );
 };

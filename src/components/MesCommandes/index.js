@@ -19,7 +19,9 @@ const MesCommandesComponent = () => {
         <Text style={{fontSize: 20}}>Mes Commandes</Text>
       </View>
       <View style={styles.body}>
-        <View style={styles.card}>
+        <TouchableOpacity
+          onPress={() => navigate('DetailsCommande')}
+          style={styles.card}>
           <View style={styles.img}>
             <Image
               source={food}
@@ -33,7 +35,7 @@ const MesCommandesComponent = () => {
             <Text>Cody's</Text>
             <Text style={{fontSize: 16, top: 10}}>Annule</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

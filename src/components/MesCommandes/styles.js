@@ -27,7 +27,7 @@ export default StyleSheet.create({
   card: {
     backgroundColor: 'white',
     width: '100%',
-    height: '20%',
+    height: '40%',
     borderRadius: 10,
     justifyContent: 'space-around',
     flexDirection: 'row',

@@ -16,6 +16,8 @@ import Help from '../screens/Help';
 import DetailsRestaurant from '../screens/DetailsRestaurant';
 import DetailsAliment from '../screens/DetailsAliment';
 import AddCart from '../screens/AddCart';
+import DetailsCommande from '../screens/DetailsCommande';
+import AddCodePromo from '../screens/AddCodePromo';
 
 const HomeNavigator = () => {
   const HomeStack = createStackNavigator();
@@ -44,6 +46,8 @@ const HomeNavigator = () => {
       />
       <HomeStack.Screen name="DetailsAliment" component={DetailsAliment} />
       <HomeStack.Screen name="AddCart" component={AddCart} />
+      <HomeStack.Screen name="DetailsCommande" component={DetailsCommande} />
+      <HomeStack.Screen name="AddCodePromo" component={AddCodePromo} />
     </HomeStack.Navigator>
   );
 };

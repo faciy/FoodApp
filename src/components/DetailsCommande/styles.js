@@ -5,7 +5,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   header: {
-    height: 70,
+    height: '10%',
     backgroundColor: 'white',
     shadowColor: 'rgba(0, 0, 0, 0.50)',
     shadowOffset: {
@@ -18,15 +18,5 @@ export default StyleSheet.create({
     padding: 20,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  body: {
-    height: '90%',
-    backgroundColor: 'white',
-    padding: 20,
-  },
-  input: {
-    borderBottomColor: 'grey',
-    borderBottomWidth: 2,
-    width: '80%',
   },
 });

@@ -19,6 +19,8 @@ import AddCart from '../screens/AddCart';
 import DetailsCommande from '../screens/DetailsCommande';
 import AddCodePromo from '../screens/AddCodePromo';
 import InfoCommande from '../screens/InfoCommande';
+import HelpCommandeOne from '../screens/HelpCommandeOne';
+import HelpCommandeTwo from '../screens/HelpCommandeTwo';
 
 const HomeNavigator = () => {
   const HomeStack = createStackNavigator();
@@ -50,6 +52,8 @@ const HomeNavigator = () => {
       <HomeStack.Screen name="DetailsCommande" component={DetailsCommande} />
       <HomeStack.Screen name="AddCodePromo" component={AddCodePromo} />
       <HomeStack.Screen name="InfoCommande" component={InfoCommande} />
+      <HomeStack.Screen name="HelpCommandeOne" component={HelpCommandeOne} />
+      <HomeStack.Screen name="HelpCommandeTwo" component={HelpCommandeTwo} />
     </HomeStack.Navigator>
   );
 };

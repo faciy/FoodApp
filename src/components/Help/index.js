@@ -21,7 +21,9 @@ const HelpComponent = () => {
       </View>
       <View style={styles.body}>
         {/* PREMIER CARD  */}
-        <TouchableOpacity style={styles.card}>
+        <TouchableOpacity
+          onPress={() => navigate('HelpCommandeOne')}
+          style={styles.card}>
           <View style={{alignItems: 'center'}}>
             <Image source={foodDelivery} style={{width: 100, height: 100}} />
             <Text style={{fontSize: 20, fontWeight: 'bold'}}>
@@ -31,7 +33,9 @@ const HelpComponent = () => {
         </TouchableOpacity>
         {/* DEUXIEME CARD  */}
         <View style={{marginTop: -120}} />
-        <TouchableOpacity style={styles.card}>
+        <TouchableOpacity
+          onPress={() => navigate('HelpCommandeTwo')}
+          style={styles.card}>
           <View style={{alignItems: 'center'}}>
             <Image source={foodDelivery} style={{width: 100, height: 100}} />
             <Text style={{fontSize: 20, fontWeight: 'bold'}}>

@@ -491,7 +491,11 @@ const HomeComponent = () => {
               ]}>
               <Icon sizeIcon={50} icon={foodDelivery} />
               <Text
-                style={{fontSize: 20, fontWeight: 'bold', textAlign: 'center'}}>
+                style={{
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  textAlign: 'center',
+                }}>
                 Livraison Express
               </Text>
             </Animated.View>

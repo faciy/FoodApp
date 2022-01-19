@@ -21,6 +21,11 @@ import AddCodePromo from '../screens/AddCodePromo';
 import InfoCommande from '../screens/InfoCommande';
 import HelpCommandeOne from '../screens/HelpCommandeOne';
 import HelpCommandeTwo from '../screens/HelpCommandeTwo';
+import DejSnack from '../screens/DejSnack';
+import Hungry from '../screens/Hungry';
+import Supermarket from '../screens/Supermarket';
+import Shops from '../screens/Shops';
+import Magic from '../screens/Magic';
 
 const HomeNavigator = () => {
   const HomeStack = createStackNavigator();
@@ -54,6 +59,11 @@ const HomeNavigator = () => {
       <HomeStack.Screen name="InfoCommande" component={InfoCommande} />
       <HomeStack.Screen name="HelpCommandeOne" component={HelpCommandeOne} />
       <HomeStack.Screen name="HelpCommandeTwo" component={HelpCommandeTwo} />
+      <HomeStack.Screen name="DejSnack" component={DejSnack} />
+      <HomeStack.Screen name="Hungry" component={Hungry} />
+      <HomeStack.Screen name="Supermarket" component={Supermarket} />
+      <HomeStack.Screen name="Shops" component={Shops} />
+      <HomeStack.Screen name="Magic" component={Magic} />
     </HomeStack.Navigator>
   );
 };

@@ -22,6 +22,7 @@ import {
   PanGestureHandler,
   State,
   RotationGestureHandler,
+  TapGestureHandler,
 } from 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
 
@@ -291,6 +292,30 @@ const HomeComponent = () => {
   const {transXFive, transYFive, handlePanFive} = usePanFive();
   const {transXSix, transYSix, handlePanSix} = usePanSix();
 
+  const handleFaim = () => {
+    navigate('Hungry');
+  };
+
+  const handleLivraison = () => {
+    navigate('DetailsCommande');
+  };
+
+  const handleBoutique = () => {
+    navigate('Shops');
+  };
+
+  const handleMagique = () => {
+    navigate('Magic');
+  };
+
+  const handleSupermarche = () => {
+    navigate('Supermarket');
+  };
+
+  const handleDej = () => {
+    navigate('DejSnack');
+  };
+
   const renderItem = () => {
     return (
       <TouchableOpacity
@@ -413,11 +438,19 @@ const HomeComponent = () => {
                 styles.first,
                 {transform: [{translateX: transX, translateY: transY}]},
               ]}>
-              <Icon sizeIcon={50} icon={foodDelivery} />
-              <Text
-                style={{fontSize: 20, fontWeight: 'bold', textAlign: 'center'}}>
-                Magique
-              </Text>
+              <TapGestureHandler onHandlerStateChange={handleMagique}>
+                <Animated.View>
+                  <Icon sizeIcon={50} icon={foodDelivery} />
+                  <Text
+                    style={{
+                      fontSize: 20,
+                      fontWeight: 'bold',
+                      textAlign: 'center',
+                    }}>
+                    Magique
+                  </Text>
+                </Animated.View>
+              </TapGestureHandler>
             </Animated.View>
           </PanGestureHandler>
 
@@ -430,11 +463,24 @@ const HomeComponent = () => {
                 styles.two,
                 {transform: [{translateX: transXTwo, translateY: transYTwo}]},
               ]}>
-              <Icon sizeIcon={50} icon={foodDelivery} />
+              {/* <Icon sizeIcon={50} icon={foodDelivery} />
               <Text
                 style={{fontSize: 20, fontWeight: 'bold', textAlign: 'center'}}>
                 P'tit déj et snacks
-              </Text>
+              </Text> */}
+              <TapGestureHandler onHandlerStateChange={handleDej}>
+                <Animated.View>
+                  <Icon sizeIcon={50} icon={foodDelivery} />
+                  <Text
+                    style={{
+                      fontSize: 20,
+                      fontWeight: 'bold',
+                      textAlign: 'center',
+                    }}>
+                    P'tit déj et snacks
+                  </Text>
+                </Animated.View>
+              </TapGestureHandler>
             </Animated.View>
           </PanGestureHandler>
 
@@ -451,11 +497,19 @@ const HomeComponent = () => {
                   ],
                 },
               ]}>
-              <Icon sizeIcon={50} icon={foodDelivery} />
-              <Text
-                style={{fontSize: 20, fontWeight: 'bold', textAlign: 'center'}}>
-                J'ai faim
-              </Text>
+              <TapGestureHandler onHandlerStateChange={handleFaim}>
+                <Animated.View>
+                  <Icon sizeIcon={50} icon={foodDelivery} />
+                  <Text
+                    style={{
+                      fontSize: 20,
+                      fontWeight: 'bold',
+                      textAlign: 'center',
+                    }}>
+                    J'ai faim
+                  </Text>
+                </Animated.View>
+              </TapGestureHandler>
             </Animated.View>
           </PanGestureHandler>
 
@@ -470,11 +524,19 @@ const HomeComponent = () => {
                   transform: [{translateX: transXFour, translateY: transYFour}],
                 },
               ]}>
-              <Icon sizeIcon={50} icon={foodDelivery} />
-              <Text
-                style={{fontSize: 20, fontWeight: 'bold', textAlign: 'center'}}>
-                Supermarché & Alcools
-              </Text>
+              <TapGestureHandler onHandlerStateChange={handleSupermarche}>
+                <Animated.View>
+                  <Icon sizeIcon={50} icon={foodDelivery} />
+                  <Text
+                    style={{
+                      fontSize: 20,
+                      fontWeight: 'bold',
+                      textAlign: 'center',
+                    }}>
+                    Supermarché & Alcools
+                  </Text>
+                </Animated.View>
+              </TapGestureHandler>
             </Animated.View>
           </PanGestureHandler>
 
@@ -489,15 +551,19 @@ const HomeComponent = () => {
                   transform: [{translateX: transXFive, translateY: transYFive}],
                 },
               ]}>
-              <Icon sizeIcon={50} icon={foodDelivery} />
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  textAlign: 'center',
-                }}>
-                Livraison Express
-              </Text>
+              <TapGestureHandler onHandlerStateChange={handleLivraison}>
+                <Animated.View>
+                  <Icon sizeIcon={50} icon={foodDelivery} />
+                  <Text
+                    style={{
+                      fontSize: 20,
+                      fontWeight: 'bold',
+                      textAlign: 'center',
+                    }}>
+                    Livraison Express
+                  </Text>
+                </Animated.View>
+              </TapGestureHandler>
             </Animated.View>
           </PanGestureHandler>
 
@@ -512,11 +578,19 @@ const HomeComponent = () => {
                   transform: [{translateX: transXSix, translateY: transYSix}],
                 },
               ]}>
-              <Icon sizeIcon={50} icon={foodDelivery} />
-              <Text
-                style={{fontSize: 20, fontWeight: 'bold', textAlign: 'center'}}>
-                Nos boutiques
-              </Text>
+              <TapGestureHandler onHandlerStateChange={handleBoutique}>
+                <Animated.View>
+                  <Icon sizeIcon={50} icon={foodDelivery} />
+                  <Text
+                    style={{
+                      fontSize: 20,
+                      fontWeight: 'bold',
+                      textAlign: 'center',
+                    }}>
+                    Nos boutiques
+                  </Text>
+                </Animated.View>
+              </TapGestureHandler>
             </Animated.View>
           </PanGestureHandler>
           {/* FIN  */}

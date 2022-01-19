@@ -99,24 +99,6 @@ const MesCommandesComponent = () => {
         <Text style={{fontSize: 20}}>Mes Commandes</Text>
       </View>
       <View style={styles.body}>
-        {/* <TouchableOpacity
-          // onPress={() => navigate('DetailsCommande')}
-          onPress={() => navigate('InfoCommande')}
-          style={styles.card}>
-          <View style={styles.img}>
-            <Image
-              source={food}
-              style={{width: 100, height: 100, borderRadius: 10}}
-            />
-          </View>
-          <View style={styles.text}>
-            <Text style={{fontSize: 20, fontWeight: 'bold'}}>
-              Restaurant Grace Delice
-            </Text>
-            <Text>Cody's</Text>
-            <Text style={{fontSize: 16, top: 10}}>Annule</Text>
-          </View>
-        </TouchableOpacity> */}
         <FlatList
           showsVerticalScrollIndicator={false}
           data={datas}

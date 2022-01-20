@@ -4,10 +4,9 @@ import {
   Text,
   TouchableOpacity,
   Animated,
-  Easing,
   Image,
+  Easing,
 } from 'react-native';
-import {TextInput} from 'react-native-gesture-handler';
 import Container from '../common/Container';
 import Header from '../common/Header';
 import styles from './styles';
@@ -20,16 +19,17 @@ import Input from '../common/Input';
 import ButtonAuth from '../common/ButtonAuth';
 import {useNavigation} from '@react-navigation/native';
 
-const LoginComponent = () => {
+const RegisterComponent = () => {
   const [secureTextEntry, setSecureTextEntry] = useState(true);
   const {navigate} = useNavigation();
+
   const animateValue = useRef(new Animated.Value(1)).current;
 
   const animatedStyle = {
     transform: [{scale: animateValue}],
   };
 
-  const loginBtn = () => {
+  const registerBtn = () => {
     Animated.timing(animateValue, {
       toValue: 0.3,
       duration: 500,
@@ -38,16 +38,16 @@ const LoginComponent = () => {
     }).start(() => {
       animateValue.setValue(1);
     });
-    navigate('CodeVerification');
+    navigate('Login');
   };
 
   return (
     <View style={styles.container}>
-      <Header show={true} title="CONNEXION" />
+      <Header show={true} title="INSCRIPTION" />
       <View style={styles.body}>
         <Container>
           <TouchableOpacity
-            onPress={() => navigate('Register')}
+            onPress={() => navigate('Login')}
             style={{flexDirection: 'row-reverse'}}>
             <Text
               style={{
@@ -56,9 +56,26 @@ const LoginComponent = () => {
                 color: '#172774',
                 textDecorationLine: 'underline',
               }}>
-              Inscription
+              Connexion
             </Text>
           </TouchableOpacity>
+          <Input
+            label="Password"
+            icon={
+              <Image
+                source={user}
+                style={{
+                  width: 30,
+                  height: 30,
+                }}
+              />
+            }
+            iconPosition="left"
+            placeholder="Nom"
+          />
+          <View
+            style={{width: '100%', height: 2, backgroundColor: '#b2bec3'}}
+          />
           {/* DEUXIEME INPUT  */}
           <Input
             label="Password"
@@ -79,6 +96,26 @@ const LoginComponent = () => {
           />
 
           {/* TROISIEME INPUT  */}
+          <Input
+            label="Password"
+            icon={
+              <Image
+                source={email}
+                style={{
+                  width: 30,
+                  height: 30,
+                }}
+              />
+            }
+            iconPosition="left"
+            placeholder="Numéro de téléphone"
+            keyboard="phone-pad"
+          />
+          <View
+            style={{width: '100%', height: 2, backgroundColor: '#b2bec3'}}
+          />
+
+          {/* QUATRIEME INPUT  */}
 
           <Input
             label="Password"
@@ -111,28 +148,14 @@ const LoginComponent = () => {
             style={{width: '100%', height: 2, backgroundColor: '#b2bec3'}}
           />
 
-          {/* BUTTON LIGHT  */}
-
-          <TouchableOpacity
-            onPress={() => navigate('ForgetPassword')}
-            style={{alignItems: 'center', marginTop: 25}}>
-            <Text
-              style={{
-                fontSize: 15,
-                fontFamily: 'OpenSans-Bold',
-                color: '#172774',
-              }}>
-              Mot de passe oublié
-            </Text>
-          </TouchableOpacity>
-
           {/* BUTTON INSCRIPTION  */}
+
           <ButtonAuth
             txColor="white"
             bg="#DD6139"
             animatedStyle={animatedStyle}
-            onPress={() => loginBtn()}
-            text={'Connexion'}
+            onPress={() => registerBtn()}
+            text={'Inscription'}
             hg={55}
           />
         </Container>
@@ -141,4 +164,4 @@ const LoginComponent = () => {
   );
 };
 
-export default LoginComponent;
+export default RegisterComponent;

@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useContext} from 'react';
 import {
   View,
   StyleSheet,
@@ -16,9 +16,11 @@ import user from '../../../assets/images/user.png';
 import BottomSheet from 'react-native-bottomsheet-reanimated';
 import {DrawerItem} from '@react-navigation/drawer';
 import {CollapsibleHeaderScrollView} from 'react-native-collapsible-header-views';
+import {UserContext} from '../../utils/context/AuthContext';
 
 const DrawerContent = props => {
   const {goBack, navigate} = useNavigation();
+  const [userInfo, setUserInfo] = useContext(UserContext);
 
   const sheetRef = React.useRef('BottomSheet');
 
@@ -29,7 +31,7 @@ const DrawerContent = props => {
         onPress: () => console.log('Cancel Pressed'),
         style: 'cancel',
       },
-      {text: 'Deconnexion', onPress: () => console.log('OK Pressed')},
+      {text: 'Deconnexion', onPress: () => setUserInfo(false)},
     ]);
   };
 

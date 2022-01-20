@@ -6,20 +6,22 @@ import {
   TransitionPresets,
 } from '@react-navigation/stack';
 import CreateUser from '../screens/CreateUser';
+import Login from '../screens/Login';
 
-const CreateUserNavigator = () => {
-  const CreateUserStack = createStackNavigator();
+const AuthNavigator = () => {
+  const AuthStack = createStackNavigator();
 
   return (
-    <CreateUserStack.Navigator
+    <AuthStack.Navigator
       initialRouteName="CreateUser"
       screenOptions={{
         headerShown: false,
         // gestureEnabled: true,
       }}>
-      <CreateUserStack.Screen name="CreateUser" component={CreateUser} />
-    </CreateUserStack.Navigator>
+      <AuthStack.Screen name="CreateUser" component={CreateUser} />
+      <AuthStack.Screen name="Login" component={Login} />
+    </AuthStack.Navigator>
   );
 };
 
-export default CreateUserNavigator;
+export default AuthNavigator;

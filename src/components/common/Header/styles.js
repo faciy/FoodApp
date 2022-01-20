@@ -1,11 +1,8 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   image: {
-    flex: 1,
+    // flex: 1,
     alignItems: 'center',
     height: 400,
   },
@@ -26,6 +23,13 @@ export default StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 20,
   },
+  textInscription: {
+    top: 130,
+    fontSize: 30,
+    color: 'white',
+    fontFamily: 'OpenSans-ExtraBold',
+    letterSpacing: 2,
+  },
   textContinued: {
     fontSize: 15,
     color: 'white',
@@ -42,33 +46,5 @@ export default StyleSheet.create({
     width: 30,
     height: 30,
     tintColor: 'white',
-  },
-  body: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  textRegister: {
-    fontSize: 25,
-    fontFamily: 'OpenSans-ExtraBold',
-    color: '#172774',
-  },
-  textConnexion: {
-    fontSize: 15,
-    fontFamily: 'OpenSans-ExtraBold',
-    color: '#172774',
-  },
-  exist: {
-    fontFamily: 'OpenSans-Italic',
-  },
-  registerBtn: {
-    marginTop: 50,
-  },
-  connexion: {
-    marginTop: 30,
-    flexDirection: 'row',
-  },
-  conditions: {
-    marginTop: '40%',
-    padding: 20,
   },
 });

@@ -43,6 +43,10 @@ const CurrentPositionComponent = () => {
     navigate('Home');
   };
 
+  const handleGift = () => {
+    navigate('Gift');
+  };
+
   return (
     <Container bg="#FCC332">
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -62,7 +66,12 @@ const CurrentPositionComponent = () => {
             <Image source={downArrow} style={{width: 15, height: 15}} />
           </View>
         </Pressable>
-        <Icon bgIcon="#dfe6e9" sizeIcon={25} icon={user} />
+        <Icon
+          bgIcon="#dfe6e9"
+          sizeIcon={25}
+          icon={user}
+          onPress={() => handleGift()}
+        />
       </View>
       {/* BODY ICON  */}
       <View

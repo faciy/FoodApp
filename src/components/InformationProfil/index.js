@@ -33,7 +33,9 @@ const InformationProfilComponent = () => {
           </Text>
         </View>
         {/* MOT DE PASSE MODIFIER  */}
-        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
+        <TouchableOpacity
+          onPress={() => navigate('ChangePassword')}
+          style={{flexDirection: 'row', alignItems: 'center'}}>
           <Icon onPress={() => {}} sizeIcon={25} icon={user} />
           <View
             style={{
@@ -47,7 +49,9 @@ const InformationProfilComponent = () => {
           </View>
         </TouchableOpacity>
         {/* NUMERO MODIFIER  */}
-        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
+        <TouchableOpacity
+          onPress={() => navigate('ChangeNumber')}
+          style={{flexDirection: 'row', alignItems: 'center'}}>
           <Icon onPress={() => {}} sizeIcon={25} icon={user} />
           <View
             style={{
@@ -63,7 +67,9 @@ const InformationProfilComponent = () => {
           </View>
         </TouchableOpacity>
         {/* MODE DE PAIEMENT  */}
-        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
+        <TouchableOpacity
+          onPress={() => navigate('ModePayment')}
+          style={{flexDirection: 'row', alignItems: 'center'}}>
           <Icon onPress={() => {}} sizeIcon={25} icon={user} />
           <View
             style={{

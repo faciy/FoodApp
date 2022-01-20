@@ -26,6 +26,10 @@ import Hungry from '../screens/Hungry';
 import Supermarket from '../screens/Supermarket';
 import Shops from '../screens/Shops';
 import Magic from '../screens/Magic';
+import ChangePassword from '../screens/ChangePassword';
+import ChangeNumber from '../screens/ChangeNumber';
+import ModePayment from '../screens/ModePayment';
+import Gift from '../screens/Gift';
 
 const HomeNavigator = () => {
   const HomeStack = createStackNavigator();
@@ -64,6 +68,10 @@ const HomeNavigator = () => {
       <HomeStack.Screen name="Supermarket" component={Supermarket} />
       <HomeStack.Screen name="Shops" component={Shops} />
       <HomeStack.Screen name="Magic" component={Magic} />
+      <HomeStack.Screen name="ChangePassword" component={ChangePassword} />
+      <HomeStack.Screen name="ChangeNumber" component={ChangeNumber} />
+      <HomeStack.Screen name="ModePayment" component={ModePayment} />
+      <HomeStack.Screen name="Gift" component={Gift} />
     </HomeStack.Navigator>
   );
 };

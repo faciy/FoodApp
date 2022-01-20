@@ -6,6 +6,7 @@ import {
   Image,
   Text,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import rightArrow from '../../../assets/images/rightArrow.png';
@@ -21,7 +22,16 @@ const DrawerContent = props => {
 
   const sheetRef = React.useRef('BottomSheet');
 
-  const handleDeconnexion = () => {};
+  const handleLogout = () => {
+    Alert.alert('Oups !', 'Voulez vous vraiment vous déconnecter ?', [
+      {
+        text: 'Annuler',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: 'Deconnexion', onPress: () => console.log('OK Pressed')},
+    ]);
+  };
 
   return (
     <View style={{backgroundColor: '#FCC332', flex: 1}}>
@@ -243,7 +253,7 @@ const DrawerContent = props => {
                     Deconnexion
                   </Text>
                 )}
-                onPress={() => {}}
+                onPress={() => handleLogout()}
               />
             </View>
           }

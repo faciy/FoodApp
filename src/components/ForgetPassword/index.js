@@ -7,7 +7,7 @@ import {
   Pressable,
   Image,
 } from 'react-native';
-import {TextInput} from 'react-native-gesture-handler';
+import {ScrollView, TextInput} from 'react-native-gesture-handler';
 import Container from '../common/Container';
 import Header from '../common/Header';
 import styles from './styles';
@@ -25,9 +25,9 @@ const ForgetPasswordComponent = () => {
 
   return (
     <View style={styles.container}>
-      <Header show={true} title="MOT DE PASSE OUBLIE" />
-      <View style={styles.body}>
-        <Container>
+      <ScrollView>
+        <Header show={true} title="MOT DE PASSE OUBLIE" />
+        <View style={styles.body}>
           <View>
             <Text
               style={{
@@ -60,12 +60,12 @@ const ForgetPasswordComponent = () => {
           {/* BUTTON INSCRIPTION  */}
           <ButtonAuth
             txColor="white"
-            bg="#DD6139"
+            bg="#23A082"
             text={'Envoyer le lien'}
             hg={55}
           />
-        </Container>
-      </View>
+        </View>
+      </ScrollView>
     </View>
   );
 };

@@ -9,7 +9,7 @@ export default StyleSheet.create({
   food: {
     fontSize: 40,
     top: 20,
-    color: 'white',
+    color: '#23A082',
     fontFamily: 'OpenSans-ExtraBold',
     letterSpacing: 5,
   },
@@ -26,13 +26,13 @@ export default StyleSheet.create({
   textInscription: {
     top: 130,
     fontSize: 30,
-    color: 'white',
+    color: '#23A082',
     fontFamily: 'OpenSans-ExtraBold',
     letterSpacing: 2,
   },
   textContinued: {
     fontSize: 15,
-    color: 'white',
+    color: '#23A082',
     top: 100,
     fontFamily: 'OpenSans-Light',
   },

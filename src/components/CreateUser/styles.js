@@ -50,12 +50,12 @@ export default StyleSheet.create({
   textRegister: {
     fontSize: 25,
     fontFamily: 'OpenSans-ExtraBold',
-    color: '#172774',
+    color: '#23A082',
   },
   textConnexion: {
     fontSize: 15,
     fontFamily: 'OpenSans-ExtraBold',
-    color: '#172774',
+    color: '#23A082',
   },
   exist: {
     fontFamily: 'OpenSans-Italic',

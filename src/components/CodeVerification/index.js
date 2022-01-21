@@ -14,6 +14,7 @@ import {useNavigation} from '@react-navigation/native';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 import ButtonAuth from '../common/ButtonAuth';
 import {UserContext} from '../../utils/context/AuthContext';
+import {ScrollView} from 'react-native-gesture-handler';
 
 const CodeVerificationComponent = () => {
   const [recupCode, setRecupCode] = useState('');
@@ -29,9 +30,9 @@ const CodeVerificationComponent = () => {
 
   return (
     <View style={styles.container}>
-      <Header show={true} title="VERIFICATION CODE" />
-      <View style={styles.body}>
-        <Container>
+      <ScrollView>
+        <Header show={true} title="VERIFICATION CODE" />
+        <View style={styles.body}>
           <Text style={styles.text}>
             Nous avons envoyé la vérification du code à votre numéro de mobile
             +225 68060990
@@ -45,7 +46,7 @@ const CodeVerificationComponent = () => {
           />
           <ButtonAuth
             txColor="white"
-            bg="#DD6139"
+            bg="#23A082"
             onPress={() => handleHome()}
             text={'Envoyer'}
             hg={55}
@@ -56,8 +57,8 @@ const CodeVerificationComponent = () => {
               <Text style={styles.textSend}> Réenvoyer</Text>
             </TouchableOpacity>
           </View>
-        </Container>
-      </View>
+        </View>
+      </ScrollView>
     </View>
   );
 };

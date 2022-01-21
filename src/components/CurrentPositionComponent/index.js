@@ -44,7 +44,7 @@ const CurrentPositionComponent = () => {
   };
 
   const handleGift = () => {
-    navigate('Gift');
+    navigate('PromoReview');
   };
 
   return (

@@ -30,6 +30,8 @@ import ChangePassword from '../screens/ChangePassword';
 import ChangeNumber from '../screens/ChangeNumber';
 import ModePayment from '../screens/ModePayment';
 import Gift from '../screens/Gift';
+import SearchLocation from '../screens/SearchLocation';
+import PromoReview from '../screens/PromoReview';
 
 const HomeNavigator = () => {
   const HomeStack = createStackNavigator();
@@ -72,6 +74,8 @@ const HomeNavigator = () => {
       <HomeStack.Screen name="ChangeNumber" component={ChangeNumber} />
       <HomeStack.Screen name="ModePayment" component={ModePayment} />
       <HomeStack.Screen name="Gift" component={Gift} />
+      <HomeStack.Screen name="SearchLocation" component={SearchLocation} />
+      <HomeStack.Screen name="PromoReview" component={PromoReview} />
     </HomeStack.Navigator>
   );
 };

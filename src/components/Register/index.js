@@ -18,6 +18,7 @@ import unlock from '../../../assets/images/unlock.png';
 import Input from '../common/Input';
 import ButtonAuth from '../common/ButtonAuth';
 import {useNavigation} from '@react-navigation/native';
+import {ScrollView} from 'react-native-gesture-handler';
 
 const RegisterComponent = () => {
   const [secureTextEntry, setSecureTextEntry] = useState(true);
@@ -43,9 +44,9 @@ const RegisterComponent = () => {
 
   return (
     <View style={styles.container}>
-      <Header show={true} title="INSCRIPTION" />
-      <View style={styles.body}>
-        <Container>
+      <ScrollView>
+        <Header show={true} title="INSCRIPTION" />
+        <View style={styles.body}>
           <TouchableOpacity
             onPress={() => navigate('Login')}
             style={{flexDirection: 'row-reverse'}}>
@@ -152,14 +153,14 @@ const RegisterComponent = () => {
 
           <ButtonAuth
             txColor="white"
-            bg="#DD6139"
+            bg="#23A082"
             animatedStyle={animatedStyle}
             onPress={() => registerBtn()}
             text={'Inscription'}
             hg={55}
           />
-        </Container>
-      </View>
+        </View>
+      </ScrollView>
     </View>
   );
 };

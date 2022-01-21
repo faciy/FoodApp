@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {
   View,
   Text,
@@ -6,6 +6,7 @@ import {
   Dimensions,
   Image,
   TouchableOpacity,
+  Pressable,
 } from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 // import styles from './styles';
@@ -15,6 +16,7 @@ import unlock from '../../../assets/images/unlock.png';
 import user from '../../../assets/images/user.png';
 import Icon from '../common/Icon';
 import {useNavigation} from '@react-navigation/native';
+import BottomSheet from 'react-native-bottomsheet-reanimated';
 
 const windowHeight = Dimensions.get('window').height;
 
@@ -22,6 +24,8 @@ const datas = [{id: 1, name: 'charles'}];
 
 const AdresseMapComponent = () => {
   const {navigate, toggleDrawer, goBack} = useNavigation();
+
+  const sheetRef = useRef('BottomSheet');
 
   return (
     <View style={styles.container}>
@@ -43,17 +47,30 @@ const AdresseMapComponent = () => {
         />
       </View>
       <View style={styles.containerBottomSheet}>
-        <ScrollBottomSheet
-          componentType="FlatList"
-          snapPoints={['50%', '100%', windowHeight - 200]}
-          initialSnapIndex={2}
-          renderHandle={() => (
+        <BottomSheet
+          // keyboardAware
+          bottomSheerColor="#FFFFFF"
+          ref={sheetRef}
+          initialPosition={'50%'} //200, 300
+          snapPoints={['30%', '50%']}
+          overDrag={false}
+          // isBackDrop={true}
+          // isBackDropDismissByPress={true}
+          // isRoundBorderWithTipHeader={true}
+          onChangeSnap={e => console.log(e)}
+          // backDropColor="red"
+          // isModal={false}
+          // containerStyle={{position: 'absolute', zIndex: 1}}
+          // tipStyle={{backgroundColor: 'red'}}
+          // headerStyle={{backgroundColor: 'red'}}
+          // bodyStyle={{backgroundColor: 'red'}}
+          header={
             <View style={styles.header}>
               <View style={styles.panelHandle} />
               <TouchableOpacity
                 style={{
                   position: 'absolute',
-                  bottom: 50,
+                  bottom: 70,
                   paddingHorizontal: 20,
                   backgroundColor: '#FCC332',
                   width: '90%',
@@ -79,16 +96,15 @@ const AdresseMapComponent = () => {
                 </View>
               </TouchableOpacity>
             </View>
-          )}
-          data={datas}
-          keyExtractor={item => item.id}
-          renderItem={({item}) => (
-            <View key={item.id} style={{padding: 20}}>
+          }
+          body={
+            <View style={{padding: 20}}>
               <Text style={{fontSize: 20, fontWeight: 'bold'}}>
                 Ajouter une adresse de livraison
               </Text>
               {/* BUTON CHERCHER  */}
-              <View
+              <Pressable
+                onPress={() => navigate('SearchLocation')}
                 style={{
                   marginTop: 20,
                   alignItems: 'center',
@@ -106,7 +122,7 @@ const AdresseMapComponent = () => {
                 <Text style={{fontSize: 18}}>
                   Chercher par rue, quartier, ville ...
                 </Text>
-              </View>
+              </Pressable>
               {/* BUTON UTILISER  */}
               <TouchableOpacity
                 style={{
@@ -133,12 +149,11 @@ const AdresseMapComponent = () => {
                   style={{width: 25, height: 25, right: 15}}
                 />
                 <Text style={{fontSize: 16}}>
-                  Unnamed Road, Yamoussoukro {'\n'} Côte d'ivoire
+                  Unnamed Road, Yamoussoukro {'\n'}Côte d'ivoire
                 </Text>
               </View>
             </View>
-          )}
-          contentContainerStyle={styles.contentContainerStyle}
+          }
         />
       </View>
     </View>

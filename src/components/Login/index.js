@@ -7,7 +7,7 @@ import {
   Easing,
   Image,
 } from 'react-native';
-import {TextInput} from 'react-native-gesture-handler';
+import {ScrollView, TextInput} from 'react-native-gesture-handler';
 import Container from '../common/Container';
 import Header from '../common/Header';
 import styles from './styles';
@@ -43,9 +43,9 @@ const LoginComponent = () => {
 
   return (
     <View style={styles.container}>
-      <Header show={true} title="CONNEXION" />
-      <View style={styles.body}>
-        <Container>
+      <ScrollView>
+        <Header show={true} title="CONNEXION" />
+        <View style={styles.body}>
           <TouchableOpacity
             onPress={() => navigate('Register')}
             style={{flexDirection: 'row-reverse'}}>
@@ -53,7 +53,7 @@ const LoginComponent = () => {
               style={{
                 fontSize: 20,
                 fontFamily: 'OpenSans-Bold',
-                color: '#172774',
+                color: '#23A082',
                 textDecorationLine: 'underline',
               }}>
               Inscription
@@ -120,7 +120,7 @@ const LoginComponent = () => {
               style={{
                 fontSize: 15,
                 fontFamily: 'OpenSans-Bold',
-                color: '#172774',
+                color: '#23A082',
               }}>
               Mot de passe oublié
             </Text>
@@ -129,14 +129,14 @@ const LoginComponent = () => {
           {/* BUTTON INSCRIPTION  */}
           <ButtonAuth
             txColor="white"
-            bg="#DD6139"
+            bg="#23A082"
             animatedStyle={animatedStyle}
             onPress={() => loginBtn()}
             text={'Connexion'}
             hg={55}
           />
-        </Container>
-      </View>
+        </View>
+      </ScrollView>
     </View>
   );
 };

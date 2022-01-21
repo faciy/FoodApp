@@ -6,6 +6,7 @@ export default StyleSheet.create({
   },
   body: {
     flex: 1,
+    padding: 20,
   },
   text: {
     textAlign: 'center',
@@ -13,7 +14,7 @@ export default StyleSheet.create({
     fontFamily: 'OpenSans-SemiBold',
   },
   inputFieldOff: {
-    borderWidth: 0,
+    borderWidth: 2,
     borderBottomWidth: 1,
     color: '#7F7F7F',
     fontWeight: 'bold',
@@ -33,7 +34,7 @@ export default StyleSheet.create({
   textSend: {
     fontSize: 15,
     fontFamily: 'OpenSans-ExtraBold',
-    color: '#172774',
+    color: '#23A082',
   },
   btnSend: {
     flexDirection: 'row',

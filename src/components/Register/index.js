@@ -54,7 +54,7 @@ const RegisterComponent = () => {
               style={{
                 fontSize: 20,
                 fontFamily: 'OpenSans-Bold',
-                color: '#172774',
+                color: '#23A082',
                 textDecorationLine: 'underline',
               }}>
               Connexion

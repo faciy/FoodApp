@@ -43,39 +43,196 @@ const HomeNavigator = () => {
         headerShown: false,
         // gestureEnabled: true,
       }}>
-      <HomeStack.Screen name="CurrentPosition" component={CurrentPosition} />
-      <HomeStack.Screen name="Profil" component={Profil} />
-      <HomeStack.Screen name="AdresseMap" component={AdresseMap} />
-      <HomeStack.Screen name="Home" component={Home} />
-      <HomeStack.Screen name="MesCommandes" component={MesCommandes} />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator:
+            CardStyleInterpolators.forFadeFromBottomAndroid,
+        }}
+        name="CurrentPosition"
+        component={CurrentPosition}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="Profil"
+        component={Profil}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="AdresseMap"
+        component={AdresseMap}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="Home"
+        component={Home}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="MesCommandes"
+        component={MesCommandes}
+      />
       <HomeStack.Screen
         name="InformationProfil"
         component={InformationProfil}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
       />
-      <HomeStack.Screen name="CodePromo" component={CodePromo} />
-      <HomeStack.Screen name="Help" component={Help} />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="CodePromo"
+        component={CodePromo}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="Help"
+        component={Help}
+      />
       <HomeStack.Screen
         name="DetailsRestaurant"
         component={DetailsRestaurant}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
       />
-      <HomeStack.Screen name="DetailsAliment" component={DetailsAliment} />
-      <HomeStack.Screen name="AddCart" component={AddCart} />
-      <HomeStack.Screen name="DetailsCommande" component={DetailsCommande} />
-      <HomeStack.Screen name="AddCodePromo" component={AddCodePromo} />
-      <HomeStack.Screen name="InfoCommande" component={InfoCommande} />
-      <HomeStack.Screen name="HelpCommandeOne" component={HelpCommandeOne} />
-      <HomeStack.Screen name="HelpCommandeTwo" component={HelpCommandeTwo} />
-      <HomeStack.Screen name="DejSnack" component={DejSnack} />
-      <HomeStack.Screen name="Hungry" component={Hungry} />
-      <HomeStack.Screen name="Supermarket" component={Supermarket} />
-      <HomeStack.Screen name="Shops" component={Shops} />
-      <HomeStack.Screen name="Magic" component={Magic} />
-      <HomeStack.Screen name="ChangePassword" component={ChangePassword} />
-      <HomeStack.Screen name="ChangeNumber" component={ChangeNumber} />
-      <HomeStack.Screen name="ModePayment" component={ModePayment} />
-      <HomeStack.Screen name="Gift" component={Gift} />
-      <HomeStack.Screen name="SearchLocation" component={SearchLocation} />
-      <HomeStack.Screen name="PromoReview" component={PromoReview} />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="DetailsAliment"
+        component={DetailsAliment}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="AddCart"
+        component={AddCart}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="DetailsCommande"
+        component={DetailsCommande}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="AddCodePromo"
+        component={AddCodePromo}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="InfoCommande"
+        component={InfoCommande}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="HelpCommandeOne"
+        component={HelpCommandeOne}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="HelpCommandeTwo"
+        component={HelpCommandeTwo}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="DejSnack"
+        component={DejSnack}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="Hungry"
+        component={Hungry}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="Supermarket"
+        component={Supermarket}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="Shops"
+        component={Shops}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="Magic"
+        component={Magic}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="ChangePassword"
+        component={ChangePassword}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="ChangeNumber"
+        component={ChangeNumber}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="ModePayment"
+        component={ModePayment}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="Gift"
+        component={Gift}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="SearchLocation"
+        component={SearchLocation}
+      />
+      <HomeStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="PromoReview"
+        component={PromoReview}
+      />
     </HomeStack.Navigator>
   );
 };

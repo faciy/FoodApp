@@ -19,13 +19,38 @@ const AuthNavigator = () => {
       initialRouteName="CreateUser"
       screenOptions={{
         headerShown: false,
-        // gestureEnabled: true,
+        gestureEnabled: true,
       }}>
       <AuthStack.Screen name="CreateUser" component={CreateUser} />
-      <AuthStack.Screen name="Login" component={Login} />
-      <AuthStack.Screen name="ForgetPassword" component={ForgetPassword} />
-      <AuthStack.Screen name="Register" component={Register} />
-      <AuthStack.Screen name="CodeVerification" component={CodeVerification} />
+      <AuthStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="Register"
+        component={Register}
+      />
+      <AuthStack.Screen
+        options={{
+          cardStyleInterpolator:
+            CardStyleInterpolators.forFadeFromBottomAndroid,
+        }}
+        name="Login"
+        component={Login}
+      />
+      <AuthStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forModalPresentationIOS,
+        }}
+        name="ForgetPassword"
+        component={ForgetPassword}
+      />
+      <AuthStack.Screen
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+        name="CodeVerification"
+        component={CodeVerification}
+      />
     </AuthStack.Navigator>
   );
 };

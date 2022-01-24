@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {
   View,
   Text,
@@ -6,23 +6,36 @@ import {
   ImageBackground,
   Pressable,
   Image,
+  Animated,
 } from 'react-native';
 import styles from './styles';
 import Ellipse from '../../../../assets/images/Ellipse.png';
 import facebook from '../../../../assets/images/facebook.png';
+import * as Animatable from 'react-native-animatable';
 
 const Header = ({show, title}) => {
   return (
     <ImageBackground source={Ellipse} resizeMode="cover" style={styles.image}>
-      <Text style={styles.food}>FOOD</Text>
+      <Animatable.Text animation="slideInUp" style={styles.food}>
+        FOOD
+      </Animatable.Text>
       <Text style={styles.textContinued}>Continuer avec</Text>
       {show ? (
-        <Text style={styles.textInscription}>{title}</Text>
+        <Animatable.Text animation="zoomInDown" style={styles.textInscription}>
+          {title}
+        </Animatable.Text>
       ) : (
-        <Pressable style={styles.facebookBtn}>
-          <Image source={facebook} style={styles.logoFb} />
-          <Text style={styles.facebook}>Facebook</Text>
-        </Pressable>
+        <Animatable.View style={styles.facebookBtn} animation="slideInUp">
+          <Pressable
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexDirection: 'row',
+            }}>
+            <Image source={facebook} style={styles.logoFb} />
+            <Text style={styles.facebook}>Facebook</Text>
+          </Pressable>
+        </Animatable.View>
       )}
     </ImageBackground>
   );

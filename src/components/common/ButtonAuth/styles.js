@@ -8,7 +8,7 @@ export default StyleSheet.create({
     height: 75,
     // backgroundColor:'#DD6139',
     justifyContent: 'center',
-    borderRadius: 20,
+    borderRadius: 50,
   },
   text: {
     fontSize: 20,

@@ -15,8 +15,10 @@ import upArrow from '../../../assets/images/upArrow.png';
 import downArrow from '../../../assets/images/downArrow.png';
 import user from '../../../assets/images/user.png';
 import foodDelivery from '../../../assets/images/foodDelivery.png';
+import gift from '../../../assets/images/gift.png';
 import Button from '../common/Button';
 import {useNavigation} from '@react-navigation/native';
+import * as Animatable from 'react-native-animatable';
 
 const CurrentPositionComponent = () => {
   const {navigate, toggleDrawer} = useNavigation();
@@ -52,35 +54,42 @@ const CurrentPositionComponent = () => {
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <Icon
           onPress={() => handleShowProfil()}
-          bgIcon="#dfe6e9"
-          sizeIcon={25}
+          bgIcon="#ffeaa7"
+          sizeIcon={20}
           icon={user}
         />
         <Pressable
           onPress={() => handleAdresse()}
           style={{flexDirection: 'row'}}>
-          <Text style={{textAlign: 'center', fontSize: 18, fontWeight: 'bold'}}>
+          <Animatable.Text
+            animation="bounce"
+            style={{
+              textAlign: 'center',
+              fontSize: 15,
+              fontFamily: 'OpenSans-Bold',
+            }}>
             Veuillez saisir une adresse {'\n'} de livraison.
-          </Text>
+          </Animatable.Text>
           <View style={{position: 'absolute', right: '-3%', top: '50%'}}>
             <Image source={downArrow} style={{width: 15, height: 15}} />
           </View>
         </Pressable>
         <Icon
-          bgIcon="#dfe6e9"
-          sizeIcon={25}
-          icon={user}
+          bgIcon="#ffeaa7"
+          sizeIcon={20}
+          icon={gift}
           onPress={() => handleGift()}
         />
       </View>
       {/* BODY ICON  */}
-      <View
+      <Animatable.View
+        // animation="zoomOut"
         style={{
           alignItems: 'center',
           marginTop: '50%',
         }}>
         <Image source={foodDelivery} style={{width: 300, height: 300}} />
-      </View>
+      </Animatable.View>
       {/* BUTTON POSITION  */}
       <Button
         title="Utiliser la position actuelle"

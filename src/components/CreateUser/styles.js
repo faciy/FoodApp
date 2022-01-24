@@ -51,6 +51,7 @@ export default StyleSheet.create({
     fontSize: 25,
     fontFamily: 'OpenSans-ExtraBold',
     color: '#23A082',
+    // opacity: 1,
   },
   textConnexion: {
     fontSize: 15,

@@ -1,16 +1,17 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
   ImageBackground,
   Pressable,
-  Image,
+  Animated,
   Linking,
 } from 'react-native';
 import styles from './styles';
 import Header from '../common/Header';
 import {useNavigation} from '@react-navigation/native';
+import * as Animatable from 'react-native-animatable';
 
 const createUserComponent = () => {
   const {navigate} = useNavigation();
@@ -22,14 +23,18 @@ const createUserComponent = () => {
         <TouchableOpacity
           onPress={() => navigate('Register')}
           style={styles.registerBtn}>
-          <Text style={styles.textRegister}>Inscription</Text>
+          <Animatable.Text animation="slideInLeft" style={styles.textRegister}>
+            Inscription
+          </Animatable.Text>
         </TouchableOpacity>
         <View style={styles.connexion}>
           <Text style={styles.exist}>Vous avez déjà un compte ? </Text>
           <TouchableOpacity
             onPress={() => navigate('Login')}
             style={styles.connexionBtn}>
-            <Text style={styles.textConnexion}>Connexion</Text>
+            <Animatable.Text animation="zoomInUp" style={styles.textConnexion}>
+              Connexion
+            </Animatable.Text>
           </TouchableOpacity>
         </View>
         <View style={styles.conditions}>

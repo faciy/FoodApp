@@ -16,7 +16,9 @@ const HelpCommandeOneComponent = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Icon onPress={() => goBack()} sizeIcon={15} icon={rightArrow} />
-        <Text numberOfLines={1} style={{fontSize: 20}}>
+        <Text
+          numberOfLines={1}
+          style={{fontSize: 20, fontFamily: 'OpenSans-Bold'}}>
           Aide pour une commande
         </Text>
       </View>

@@ -9,10 +9,12 @@ import {
   Alert,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import rightArrow from '../../../assets/images/rightArrow.png';
+import ArrowLeft from '../../../assets/images/ArrowLeft.png';
+import leftArrow from '../../../assets/images/leftArrow.png';
 import foodDelivery from '../../../assets/images/foodDelivery.png';
 import facebook from '../../../assets/images/facebook.png';
 import user from '../../../assets/images/user.png';
+import telephone from '../../../assets/images/telephone.png';
 import BottomSheet from 'react-native-bottomsheet-reanimated';
 import {DrawerItem} from '@react-navigation/drawer';
 import {CollapsibleHeaderScrollView} from 'react-native-collapsible-header-views';
@@ -45,7 +47,7 @@ const DrawerContent = props => {
           justifyContent: 'space-between',
         }}>
         <TouchableOpacity onPress={() => goBack()}>
-          <Image source={rightArrow} style={{width: 20, height: 20}} />
+          <Image source={leftArrow} style={{width: 20, height: 20}} />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigate('Help')}
@@ -59,14 +61,29 @@ const DrawerContent = props => {
             borderRadius: 30,
           }}>
           <Image
-            source={facebook}
+            source={telephone}
             style={{width: 20, height: 20, tintColor: 'white'}}
           />
-          <Text style={{color: 'white', fontSize: 18}}>Aide</Text>
+
+          <Text
+            style={{
+              color: 'white',
+              fontSize: 18,
+              fontFamily: 'OpenSans-Bold',
+            }}>
+            Aide
+          </Text>
         </TouchableOpacity>
       </View>
-      <Text style={{padding: 20, fontSize: 25, fontWeight: 'bold'}}>
-        Bonjour Charles
+      <Text
+        style={{
+          padding: 20,
+          fontSize: 30,
+          // fontWeight: 'bold',
+          color: 'black',
+          fontFamily: 'OpenSans-Bold',
+        }}>
+        Bonjour, Charles !
       </Text>
       <View style={{alignItems: 'center', marginTop: 50}}>
         <Image source={foodDelivery} style={{width: 100, height: 100}} />
@@ -77,8 +94,8 @@ const DrawerContent = props => {
         <BottomSheet
           bottomSheerColor="#FFFFFF"
           ref={sheetRef}
-          initialPosition={'120%'} //200, 300
-          snapPoints={['120%']}
+          initialPosition={'115%'} //200, 300
+          snapPoints={['115%']}
           isBackDrop={true}
           isBackDropDismisByPress={true}
           isRoundBorderWithTipHeader={true}
@@ -109,10 +126,23 @@ const DrawerContent = props => {
                       justifyContent: 'space-between',
                       alignItems: 'center',
                     }}>
-                    <Text style={{color: 'black', fontSize: 18}}>
+                    <Text
+                      style={{
+                        color: 'black',
+                        fontSize: 18,
+                        fontFamily: 'OpenSans-Light',
+                      }}>
                       Mes commandes
                     </Text>
-                    <Image source={user} style={{width: 20, height: 20}} />
+                    <Image
+                      source={ArrowLeft}
+                      style={{
+                        width: 25,
+                        height: 25,
+                        tintColor: '#bdc3c7',
+                        left: 30,
+                      }}
+                    />
                   </View>
                 )}
                 onPress={() => navigate('MesCommandes')}
@@ -137,10 +167,23 @@ const DrawerContent = props => {
                       justifyContent: 'space-between',
                       alignItems: 'center',
                     }}>
-                    <Text style={{color: 'black', fontSize: 18}}>
+                    <Text
+                      style={{
+                        color: 'black',
+                        fontSize: 18,
+                        fontFamily: 'OpenSans-Light',
+                      }}>
                       Mes informations
                     </Text>
-                    <Image source={user} style={{width: 20, height: 20}} />
+                    <Image
+                      source={ArrowLeft}
+                      style={{
+                        width: 25,
+                        height: 25,
+                        tintColor: '#bdc3c7',
+                        left: 30,
+                      }}
+                    />
                   </View>
                 )}
                 onPress={() => navigate('InformationProfil')}
@@ -175,10 +218,23 @@ const DrawerContent = props => {
                       justifyContent: 'space-between',
                       alignItems: 'center',
                     }}>
-                    <Text style={{color: 'black', fontSize: 18}}>
+                    <Text
+                      style={{
+                        color: 'black',
+                        fontSize: 18,
+                        fontFamily: 'OpenSans-Light',
+                      }}>
                       Code promo
                     </Text>
-                    <Image source={user} style={{width: 20, height: 20}} />
+                    <Image
+                      source={ArrowLeft}
+                      style={{
+                        width: 25,
+                        height: 25,
+                        tintColor: '#bdc3c7',
+                        left: 30,
+                      }}
+                    />
                   </View>
                 )}
                 onPress={() => navigate('CodePromo')}
@@ -203,8 +259,23 @@ const DrawerContent = props => {
                       justifyContent: 'space-between',
                       alignItems: 'center',
                     }}>
-                    <Text style={{color: 'black', fontSize: 18}}>FAQ</Text>
-                    <Image source={user} style={{width: 20, height: 20}} />
+                    <Text
+                      style={{
+                        color: 'black',
+                        fontSize: 18,
+                        fontFamily: 'OpenSans-Light',
+                      }}>
+                      FAQ
+                    </Text>
+                    <Image
+                      source={ArrowLeft}
+                      style={{
+                        width: 25,
+                        height: 25,
+                        tintColor: '#bdc3c7',
+                        left: 30,
+                      }}
+                    />
                   </View>
                 )}
                 onPress={() => {}}
@@ -229,10 +300,23 @@ const DrawerContent = props => {
                       justifyContent: 'space-between',
                       alignItems: 'center',
                     }}>
-                    <Text style={{color: 'black', fontSize: 18}}>
+                    <Text
+                      style={{
+                        color: 'black',
+                        fontSize: 18,
+                        fontFamily: 'OpenSans-Light',
+                      }}>
                       Notification
                     </Text>
-                    <Image source={user} style={{width: 20, height: 20}} />
+                    <Image
+                      source={ArrowLeft}
+                      style={{
+                        width: 25,
+                        height: 25,
+                        tintColor: '#bdc3c7',
+                        left: 30,
+                      }}
+                    />
                   </View>
                 )}
                 onPress={() => {}}
@@ -251,7 +335,12 @@ const DrawerContent = props => {
                   />
                 )}
                 label={() => (
-                  <Text style={{color: 'black', fontSize: 18}}>
+                  <Text
+                    style={{
+                      color: 'black',
+                      fontSize: 18,
+                      fontFamily: 'OpenSans-Light',
+                    }}>
                     Deconnexion
                   </Text>
                 )}

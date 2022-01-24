@@ -1,12 +1,13 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, TextInput} from 'react-native';
 import styles from './styles';
-import rightArrow from '../../../assets/images/rightArrow.png';
-import user from '../../../assets/images/user.png';
-import foodDelivery from '../../../assets/images/foodDelivery.png';
+import leftArrow from '../../../assets/images/leftArrow.png';
+import shoppingBag from '../../../assets/images/shoppingBag.png';
+import repairing from '../../../assets/images/repairing.png';
 import Icon from '../common/Icon';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
+import * as Animatable from 'react-native-animatable';
 
 const HelpComponent = () => {
   const {navigate, goBack} = useNavigation();
@@ -14,19 +15,33 @@ const HelpComponent = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Icon onPress={() => goBack()} sizeIcon={15} icon={rightArrow} />
-        <Text numberOfLines={1} style={{fontSize: 20}}>
-          Comment pouvons nous vous aiderrrrfff
-        </Text>
+        <View
+          style={{
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'row',
+          }}>
+          <Icon onPress={() => goBack()} sizeIcon={15} icon={leftArrow} />
+          <Text
+            numberOfLines={1}
+            style={{fontSize: 20, fontFamily: 'OpenSans-Bold'}}>
+            Comment pouvons-nous vous aider
+          </Text>
+        </View>
       </View>
-      <View style={styles.body}>
+      <Animatable.View animation="zoomInUp" style={styles.body}>
         {/* PREMIER CARD  */}
         <TouchableOpacity
           onPress={() => navigate('HelpCommandeOne')}
           style={styles.card}>
           <View style={{alignItems: 'center'}}>
-            <Image source={foodDelivery} style={{width: 100, height: 100}} />
-            <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+            <Image source={shoppingBag} style={{width: 100, height: 100}} />
+            <Text
+              style={{
+                fontSize: 20,
+                color: 'black',
+                fontFamily: 'OpenSans-Bold',
+              }}>
               Aide pour une commande
             </Text>
           </View>
@@ -37,13 +52,18 @@ const HelpComponent = () => {
           onPress={() => navigate('HelpCommandeTwo')}
           style={styles.card}>
           <View style={{alignItems: 'center'}}>
-            <Image source={foodDelivery} style={{width: 100, height: 100}} />
-            <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+            <Image source={repairing} style={{width: 100, height: 100}} />
+            <Text
+              style={{
+                fontSize: 20,
+                fontFamily: 'OpenSans-Bold',
+                color: 'black',
+              }}>
               Non lié à une commande
             </Text>
           </View>
         </TouchableOpacity>
-      </View>
+      </Animatable.View>
     </View>
   );
 };

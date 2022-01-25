@@ -6,12 +6,13 @@ export default StyleSheet.create({
   },
   header: {
     // backgroundColor: 'red',
-    height: '30%',
+    height: 300,
+    position: 'absolute',
+    zIndex: 1,
   },
   body: {
     backgroundColor: 'white',
     // flex: 4,
-    height: '70%',
   },
   helpView: {
     padding: 20,

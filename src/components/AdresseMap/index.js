@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   View,
   Text,
@@ -13,10 +13,16 @@ import {TextInput} from 'react-native-gesture-handler';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import ScrollBottomSheet from 'react-native-scroll-bottom-sheet';
 import unlock from '../../../assets/images/unlock.png';
-import user from '../../../assets/images/user.png';
+import closeButton from '../../../assets/images/closeButton.png';
+import flag from '../../../assets/images/flag.png';
+import location from '../../../assets/images/location.png';
+import search from '../../../assets/images/search.png';
+import navigation from '../../../assets/images/navigation.png';
+import ArrowLeft from '../../../assets/images/ArrowLeft.png';
 import Icon from '../common/Icon';
 import {useNavigation} from '@react-navigation/native';
 import BottomSheet from 'react-native-bottomsheet-reanimated';
+import * as Animatable from 'react-native-animatable';
 
 const windowHeight = Dimensions.get('window').height;
 
@@ -24,8 +30,21 @@ const datas = [{id: 1, name: 'charles'}];
 
 const AdresseMapComponent = () => {
   const {navigate, toggleDrawer, goBack} = useNavigation();
+  const [indexHeight, setIndexHeight] = useState(null);
 
   const sheetRef = useRef('BottomSheet');
+
+  const fadeIn = {
+    0: {
+      opacity: 0,
+    },
+    0.5: {
+      opacity: 0,
+    },
+    1: {
+      opacity: 1,
+    },
+  };
 
   return (
     <View style={styles.container}>
@@ -42,8 +61,8 @@ const AdresseMapComponent = () => {
         <Icon
           onPress={() => goBack()}
           bgIcon="white"
-          sizeIcon={25}
-          icon={user}
+          sizeIcon={15}
+          icon={closeButton}
         />
       </View>
       <View style={styles.containerBottomSheet}>
@@ -57,7 +76,7 @@ const AdresseMapComponent = () => {
           // isBackDrop={true}
           // isBackDropDismissByPress={true}
           // isRoundBorderWithTipHeader={true}
-          onChangeSnap={e => console.log(e)}
+          onChangeSnap={e => setIndexHeight(e.index)}
           // backDropColor="red"
           // isModal={false}
           // containerStyle={{position: 'absolute', zIndex: 1}}
@@ -86,22 +105,44 @@ const AdresseMapComponent = () => {
                     alignItems: 'center',
                     // justifyContent: 'space-around',
                   }}>
-                  <Icon bgIcon="white" sizeIcon={25} icon={user} />
-                  <Text style={{left: 5}}>
+                  <Icon bgIcon="white" sizeIcon={25} icon={location} />
+                  <Text
+                    style={{
+                      left: 5,
+                      fontFamily: 'OpenSans-Bold',
+                      color: 'black',
+                    }}>
                     Toucher ici pour afficher votre {'\n'} position actuelle{' '}
                   </Text>
                 </View>
                 <View>
-                  <Icon sizeIcon={20} icon={user} />
+                  <Icon sizeIcon={20} icon={ArrowLeft} />
                 </View>
               </TouchableOpacity>
             </View>
           }
           body={
             <View style={{padding: 20}}>
-              <Text style={{fontSize: 20, fontWeight: 'bold'}}>
-                Ajouter une adresse de livraison
-              </Text>
+              {indexHeight === 0 ? (
+                <Animatable.Text
+                  animation={fadeIn}
+                  style={{
+                    fontSize: 20,
+                    fontFamily: 'OpenSans-Bold',
+                    color: 'black',
+                  }}>
+                  Marquer le point de livraison
+                </Animatable.Text>
+              ) : (
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontFamily: 'OpenSans-Bold',
+                    color: 'black',
+                  }}>
+                  Ajouter une adresse de livraison
+                </Text>
+              )}
               {/* BUTON CHERCHER  */}
               <Pressable
                 onPress={() => navigate('SearchLocation')}
@@ -116,10 +157,10 @@ const AdresseMapComponent = () => {
                   borderRadius: 50,
                 }}>
                 <Image
-                  source={unlock}
+                  source={search}
                   style={{width: 25, height: 25, right: 10}}
                 />
-                <Text style={{fontSize: 18}}>
+                <Text style={{fontSize: 17, fontFamily: 'OpenSans-light'}}>
                   Chercher par rue, quartier, ville ...
                 </Text>
               </Pressable>
@@ -129,12 +170,16 @@ const AdresseMapComponent = () => {
                   marginTop: '20%',
                   flexDirection: 'row',
                   paddingHorizontal: 20,
+                  alignItems: 'center',
                 }}>
-                <Image
-                  source={unlock}
-                  style={{width: 25, height: 25, right: 15, tintColor: 'green'}}
-                />
-                <Text style={{fontSize: 16, color: 'green'}}>
+                <Icon bgIcon="#ecf0f1" sizeIcon={25} icon={navigation} />
+                <Text
+                  style={{
+                    fontSize: 16,
+                    color: '#23A082',
+                    fontFamily: 'OpenSans-Bold',
+                    left: 20,
+                  }}>
                   Utiliser la position actuelle
                 </Text>
               </TouchableOpacity>
@@ -144,11 +189,9 @@ const AdresseMapComponent = () => {
                   flexDirection: 'row',
                   paddingHorizontal: 20,
                 }}>
-                <Image
-                  source={unlock}
-                  style={{width: 25, height: 25, right: 15}}
-                />
-                <Text style={{fontSize: 16}}>
+                <Icon bgIcon="#ecf0f1" sizeIcon={25} icon={flag} />
+                <Text
+                  style={{fontSize: 16, left: 20, fontFamily: 'OpenSans-Bold'}}>
                   Unnamed Road, Yamoussoukro {'\n'}Côte d'ivoire
                 </Text>
               </View>

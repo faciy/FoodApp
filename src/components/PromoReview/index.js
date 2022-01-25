@@ -16,14 +16,21 @@ const PromoReviewComponent = () => {
           style={{
             textAlign: 'center',
             fontSize: 30,
-            fontWeight: 'bold',
+            fontFamily: 'OpenSans-Bold',
+            color: 'black',
             top: '20%',
           }}>
           Oups !
         </Text>
         <View style={{alignItems: 'center', marginTop: '30%'}}>
           <Image source={foodDelivery} style={{width: 200, height: 200}} />
-          <Text style={{textAlign: 'center', fontSize: 18, top: 20}}>
+          <Text
+            style={{
+              textAlign: 'center',
+              fontSize: 18,
+              top: 20,
+              fontFamily: 'OpenSans-light',
+            }}>
             Erreur avec le code promo.{'\n'}Souhaitez-vous le saisir{'\n'}
             manuellement ?
           </Text>
@@ -37,7 +44,12 @@ const PromoReviewComponent = () => {
         <TouchableOpacity
           onPress={() => navigate('Gift')}
           style={{alignItems: 'center'}}>
-          <Text style={{fontSize: 20, color: '#23A082', fontWeight: 'bold'}}>
+          <Text
+            style={{
+              fontSize: 20,
+              color: '#23A082',
+              fontFamily: 'OpenSans-Bold',
+            }}>
             Voir mes codes promos
           </Text>
         </TouchableOpacity>

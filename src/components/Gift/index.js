@@ -1,20 +1,33 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
 import styles from './styles';
-import rightArrow from '../../../assets/images/rightArrow.png';
+import leftArrow from '../../../assets/images/leftArrow.png';
 import foodDelivery from '../../../assets/images/foodDelivery.png';
-import user from '../../../assets/images/user.png';
+import {useNavigation} from '@react-navigation/native';
+import * as Animatable from 'react-native-animatable';
 
 const GiftComponent = () => {
+  const {navigate, goBack} = useNavigation();
+
   return (
     <View style={styles.container}>
-      <Image source={rightArrow} style={{width: 20, height: 20}} />
+      <Pressable onPress={() => goBack()}>
+        <Image source={leftArrow} style={{width: 20, height: 20}} />
+      </Pressable>
       <View style={{alignSelf: 'center', marginTop: 50, alignItems: 'center'}}>
-        <Image source={foodDelivery} style={{width: 150, height: 150}} />
-        <Text style={{fontSize: 25, textAlign: 'center'}}>
-          Gagnez<Text style={{fontWeight: 'bold'}}> 3000 XOF </Text>pour chaque
-          ami parrainé
-        </Text>
+        <Animatable.View animation="bounce" style={{alignItems: 'center'}}>
+          <Image source={foodDelivery} style={{width: 150, height: 150}} />
+          <Text
+            style={{
+              fontSize: 25,
+              textAlign: 'center',
+              fontFamily: 'OpenSans-Bold',
+              color: 'black',
+            }}>
+            Gagnez<Text style={{fontWeight: 'bold'}}> 3000 XOF </Text>pour
+            chaque ami parrainé
+          </Text>
+        </Animatable.View>
         <Text style={{top: 20}}>Partager votre code d'invitation</Text>
         <View
           style={{
@@ -36,9 +49,21 @@ const GiftComponent = () => {
               flexDirection: 'row',
               justifyContent: 'space-around',
             }}>
-            <Text style={{fontSize: 20, fontWeight: 'bold'}}>X1AUJYA</Text>
-            <Text style={{fontSize: 20, color: 'green', fontWeight: 'bold'}}>
-              Patarger
+            <Text
+              style={{
+                fontSize: 20,
+                fontFamily: 'OpenSans-Bold',
+                color: 'black',
+              }}>
+              X1AUJYA
+            </Text>
+            <Text
+              style={{
+                fontSize: 20,
+                color: 'green',
+                fontFamily: 'OpenSans-Bold',
+              }}>
+              Partager
             </Text>
           </View>
         </View>
@@ -50,6 +75,7 @@ const GiftComponent = () => {
               textAlign: 'center',
               fontSize: 16,
               lineHeight: 25,
+              fontFamily: 'OpenSans-light',
             }}>
             Partagez votre code avec vos amis pour leur offrir 4000 XOF de
             réduction(limité à 1000 XOF par commande),valide 30 jours sur les

@@ -8,8 +8,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import styles from './styles';
-import rightArrow from '../../../assets/images/rightArrow.png';
+import leftArrow from '../../../assets/images/leftArrow.png';
 import food from '../../../assets/images/food.jpg';
+import coctail from '../../../assets/images/coctail.jpg';
+import salade from '../../../assets/images/salade.jpg';
+import ingredient from '../../../assets/images/ingredient.jpg';
+import legumes from '../../../assets/images/legumes.jpg';
+import gateau from '../../../assets/images/gateau.jpg';
+import leg from '../../../assets/images/leg.jpg';
 import Icon from '../common/Icon';
 import {useNavigation, DrawerActions} from '@react-navigation/native';
 
@@ -23,44 +29,44 @@ const datas = [
   },
   {
     id: 2,
-    img: food,
+    img: coctail,
     nameRest: 'Restaurant Chez Samer',
-    statut: 'Annulé',
+    statut: 'En cours',
     commande: 'Codys',
   },
   {
     id: 3,
-    img: food,
-    nameRest: 'Restaurant Chez Samer',
+    img: salade,
+    nameRest: 'koffi prudence',
     statut: 'Annulé',
     commande: 'Codys',
   },
   {
     id: 4,
-    img: food,
-    nameRest: 'Restaurant Chez Samer',
-    statut: 'Annulé',
+    img: ingredient,
+    nameRest: 'Alice Rose',
+    statut: 'Terminé',
     commande: 'Codys',
   },
   {
     id: 5,
-    img: food,
+    img: legumes,
     nameRest: 'Restaurant Chez Samer',
     statut: 'Annulé',
     commande: 'Codys',
   },
   {
     id: 6,
-    img: food,
-    nameRest: 'Restaurant Chez Samer',
+    img: leg,
+    nameRest: 'Tante Ahou',
     statut: 'Annulé',
     commande: 'Codys',
   },
   {
     id: 7,
-    img: food,
-    nameRest: 'Restaurant Chez Samer',
-    statut: 'Annulé',
+    img: gateau,
+    nameRest: 'Gerold',
+    statut: 'Terminé',
     commande: 'Codys',
   },
 ];
@@ -68,23 +74,44 @@ const datas = [
 const MesCommandesComponent = () => {
   const {navigate, goBack, DrawerActions} = useNavigation();
 
-  const renderItem = () => {
+  const renderItem = ({item}) => {
     return (
       <TouchableOpacity
-        onPress={() => navigate('InfoCommande')}
+        onPress={() => navigate('InfoCommande', {item: item})}
         style={styles.card}>
         <View style={styles.img}>
           <Image
-            source={food}
+            source={item.img}
             style={{width: 100, height: 100, borderRadius: 10}}
           />
         </View>
         <View style={styles.text}>
-          <Text style={{fontSize: 20, fontWeight: 'bold'}}>
-            Restaurant Grace Delice
+          <Text
+            numberOfLines={1}
+            style={{
+              fontSize: 20,
+              color: 'black',
+              fontFamily: 'OpenSans-Bold',
+            }}>
+            {item.nameRest}
           </Text>
-          <Text>Cody's</Text>
-          <Text style={{fontSize: 16, top: 10}}>Annule</Text>
+          <Text
+            style={{
+              fontFamily: 'OpenSans-Light',
+              fontSize: 16,
+              color: 'black',
+            }}>
+            {item.commande}
+          </Text>
+          <Text
+            style={{
+              fontSize: 16,
+              top: 10,
+              color: 'black',
+              fontFamily: 'OpenSans-Bold',
+            }}>
+            {item.statut}
+          </Text>
         </View>
       </TouchableOpacity>
     );
@@ -94,9 +121,11 @@ const MesCommandesComponent = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => openDrawer()}>
-          <Icon onPress={() => {}} sizeIcon={15} icon={rightArrow} />
+          <Icon onPress={() => {}} sizeIcon={15} icon={leftArrow} />
         </TouchableOpacity>
-        <Text style={{fontSize: 20}}>Mes Commandes</Text>
+        <Text style={{fontSize: 20, fontFamily: 'OpenSans-Bold'}}>
+          Mes Commandes
+        </Text>
       </View>
       <View style={styles.body}>
         <FlatList

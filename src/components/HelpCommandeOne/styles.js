@@ -19,4 +19,32 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  bodyBackground: {
+    backgroundColor: 'red',
+  },
+  content: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+  },
+  touchable: {
+    backgroundColor: '#181829',
+    height: 50,
+  },
+  title: {
+    fontSize: 14,
+    color: '#FFFFFF',
+    fontWeight: '500',
+  },
+  message: {
+    fontSize: 16,
+    color: '#FFFFFF',
+    fontWeight: '500',
+  },
+  icon: {
+    height: 24,
+    width: 24,
+  },
+  button: {
+    padding: 16,
+  },
 });

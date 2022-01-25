@@ -19,6 +19,7 @@ import BottomSheet from 'react-native-bottomsheet-reanimated';
 import {DrawerItem} from '@react-navigation/drawer';
 import {CollapsibleHeaderScrollView} from 'react-native-collapsible-header-views';
 import {UserContext} from '../../utils/context/AuthContext';
+import * as Animatable from 'react-native-animatable';
 
 const DrawerContent = props => {
   const {goBack, navigate} = useNavigation();
@@ -35,6 +36,15 @@ const DrawerContent = props => {
       },
       {text: 'Deconnexion', onPress: () => setUserInfo(false)},
     ]);
+  };
+
+  const RotateIn = {
+    from: {
+      transform: [{rotate: '0deg'}],
+    },
+    to: {
+      transform: [{rotate: '360deg'}],
+    },
   };
 
   return (
@@ -85,9 +95,12 @@ const DrawerContent = props => {
         }}>
         Bonjour, Charles !
       </Text>
-      <View style={{alignItems: 'center', marginTop: 50}}>
+      <Animatable.View
+        animation={RotateIn}
+        iterationCount={'infinite'}
+        style={{alignItems: 'center', marginTop: 50}}>
         <Image source={foodDelivery} style={{width: 100, height: 100}} />
-      </View>
+      </Animatable.View>
 
       {/* BOTOM SHEET  */}
       <View style={styles.container}>

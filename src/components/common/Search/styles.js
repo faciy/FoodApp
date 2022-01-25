@@ -11,7 +11,8 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#f1f2f6',
     width: '90%',
-    height: 45,
+    height: 40,
     borderRadius: 50,
+    justifyContent: 'center',
   },
 });

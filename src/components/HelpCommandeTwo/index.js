@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import rightArrow from '../../../assets/images/rightArrow.png';
+import leftArrow from '../../../assets/images/leftArrow.png';
 import styles from './styles';
 import Icon from '../common/Icon';
 import {List} from 'react-native-paper';
@@ -16,8 +16,10 @@ const HelpCommandeTwoComponent = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Icon onPress={() => goBack()} sizeIcon={15} icon={rightArrow} />
-        <Text numberOfLines={1} style={{fontSize: 20}}>
+        <Icon onPress={() => goBack()} sizeIcon={15} icon={leftArrow} />
+        <Text
+          numberOfLines={1}
+          style={{fontSize: 20, fontFamily: 'OpenSans-Bold'}}>
           Non lié à une commande
         </Text>
       </View>

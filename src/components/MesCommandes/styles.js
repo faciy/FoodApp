@@ -5,7 +5,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   header: {
-    height: '10%',
+    height: '8%',
     backgroundColor: 'white',
     shadowColor: 'rgba(0, 0, 0, 0.50)',
     shadowOffset: {
@@ -27,7 +27,6 @@ export default StyleSheet.create({
   card: {
     backgroundColor: '#ffffff',
     height: 150,
-    // width: '90%',
     marginTop: 20,
     borderRadius: 10,
     borderColor: '#f1f2f6',
@@ -41,5 +40,6 @@ export default StyleSheet.create({
   },
   text: {
     lineHeight: 20,
+    width: '60%',
   },
 });

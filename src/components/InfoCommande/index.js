@@ -13,6 +13,10 @@ import {
 import styles from './styles';
 import food from '../../../assets/images/food.jpg';
 import rightArrow from '../../../assets/images/rightArrow.png';
+import leftArrow from '../../../assets/images/leftArrow.png';
+import pin from '../../../assets/images/pin.png';
+import finish from '../../../assets/images/finish.png';
+import telephone from '../../../assets/images/telephone.png';
 import user from '../../../assets/images/user.png';
 import facebook from '../../../assets/images/facebook.png';
 import Icon from '../common/Icon';
@@ -104,33 +108,39 @@ const datas = [
 
 const {add, set, block, cond, eq, multiply, max, concat} = Animated;
 
-const InfoCommandeComponent = () => {
+const InfoCommandeComponent = ({image, statut, nameRest, commande}) => {
   const {navigate, toggleDrawer} = useNavigation();
 
   const scroolAnimated = useRef(new Animated.Value(0)).current;
+  // const scroolAnimated = useRef(new Animated.Value(10)).current;
 
   // const Header_Max_Height = 0;
   // const Header_Mix_Height = 50;
 
   const animatedHeight = scroolAnimated.interpolate({
-    inputRange: [0, 1172],
-    outputRange: [250, 60],
+    inputRange: [0, 347],
+    outputRange: ['30%', '10%'],
     extrapolate: 'clamp',
   });
 
-  const animatedBackground = scroolAnimated.interpolate({
-    inputRange: [0, 1172],
-    outputRange: ['transparent', 'red'],
+  const animatedMargin = scroolAnimated.interpolate({
+    inputRange: [0, 347],
+    outputRange: [0, 20],
     extrapolate: 'clamp',
   });
+
+  // const animatedBackground = scroolAnimated.interpolate({
+  //   inputRange: [0, 1172],
+  //   outputRange: ['transparent', 'red'],
+  //   extrapolate: 'clamp',
+  // });
 
   return (
     <SafeAreaView style={styles.container}>
       <Animated.View style={[styles.header, {height: animatedHeight}]}>
-        <ImageBackground source={food} style={{width: '100%', height: '100%'}}>
-          <Animated.View
-            style={[styles.helpView, {backgroundColor: animatedBackground}]}>
-            <Icon sizeIcon={15} icon={rightArrow} bgIcon="white" />
+        <ImageBackground source={image} style={{width: '100%', height: '100%'}}>
+          <View style={[styles.helpView]}>
+            <Icon sizeIcon={15} icon={leftArrow} bgIcon="white" />
             <TouchableOpacity
               onPress={() => navigate('Help')}
               style={{
@@ -143,12 +153,19 @@ const InfoCommandeComponent = () => {
                 borderRadius: 30,
               }}>
               <Image
-                source={facebook}
+                source={telephone}
                 style={{width: 20, height: 20, tintColor: 'white'}}
               />
-              <Text style={{color: 'white', fontSize: 18}}>Aide</Text>
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: 18,
+                  fontFamily: 'OpenSans-Bold',
+                }}>
+                Aide
+              </Text>
             </TouchableOpacity>
-          </Animated.View>
+          </View>
           {/* TEXTE RESTAURANT */}
           <View style={{alignSelf: 'center', marginTop: 10, width: '80%'}}>
             <Text
@@ -156,9 +173,10 @@ const InfoCommandeComponent = () => {
                 fontSize: 30,
                 textAlign: 'center',
                 color: 'white',
-                fontWeight: 'bold',
+                // fontWeight: 'bold',
+                fontFamily: 'OpenSans-Bold',
               }}>
-              Restaurant Grâce Delice
+              {nameRest}
             </Text>
             <View
               style={{
@@ -169,13 +187,23 @@ const InfoCommandeComponent = () => {
               <Text
                 style={{
                   textAlign: 'center',
-                  // top: 20,
+                  top: 20,
                   color: 'white',
-                  fontWeight: 'bold',
+                  // fontWeight: 'bold',
+                  fontFamily: 'OpenSans-Bold',
                 }}>
                 Voir l'établissemnt
               </Text>
-              <Icon sizeIcon={15} icon={rightArrow} bgIcon="white" />
+              <Image
+                source={rightArrow}
+                style={{
+                  width: 15,
+                  height: 15,
+                  tintColor: 'white',
+                  top: 20,
+                  left: 10,
+                }}
+              />
             </View>
           </View>
         </ImageBackground>
@@ -191,20 +219,23 @@ const InfoCommandeComponent = () => {
             ],
             {useNativeDriver: false},
           )}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              padding: 40,
-              justifyContent: 'space-around',
-            }}>
+          <Animated.View style={[styles.top, {marginTop: animatedMargin}]}>
             <Icon sizeIcon={40} icon={user} bgIcon="white" />
             <View>
-              <Text style={{fontSize: 30, fontWeight: 'bold'}}>Annulé</Text>
-              <Text>Juillet.12, 2021 | 15:57</Text>
+              <Text
+                style={{
+                  fontSize: 30,
+                  fontFamily: 'OpenSans-Bold',
+                  color: 'black',
+                }}>
+                {statut}
+              </Text>
+              <Text style={{fontFamily: 'OpenSans-Bold', color: 'black'}}>
+                Juillet.12, 2021 | 15:57
+              </Text>
               <Text>NUMERO DE COMMANDE : YAP1BSU</Text>
             </View>
-          </View>
+          </Animated.View>
 
           <View
             style={{
@@ -216,25 +247,44 @@ const InfoCommandeComponent = () => {
               marginRight: 20,
               borderRadius: 15,
             }}>
-            <Text style={{fontWeight: 'bold'}}>
+            <Text style={{fontFamily: 'OpenSans-Bold', color: 'black'}}>
               Vous avez annulé cette commande
             </Text>
           </View>
 
           <View style={{padding: 20}}>
-            <Text style={{fontSize: 25, fontWeight: 'bold'}}>
+            <Text
+              style={{
+                fontSize: 25,
+                fontFamily: 'OpenSans-Bold',
+                color: 'black',
+              }}>
               Votre commande
             </Text>
-            <Text style={{fontSize: 18, top: 20}}>
+            <Text
+              style={{
+                fontSize: 15,
+                top: 20,
+                fontFamily: 'OpenSans-Bold',
+                color: 'black',
+              }}>
               1 product de Restaurant Grâce Delice
             </Text>
             <Text style={{fontSize: 20, marginTop: 40}}>
-              <Text style={{fontWeight: 'bold'}}>1X</Text> Codys
+              <Text style={{color: 'black', fontFamily: 'OpenSans-Bold'}}>
+                1X
+              </Text>{' '}
+              {commande}
             </Text>
           </View>
 
           <View style={{padding: 20}}>
-            <Text style={{fontSize: 25, fontWeight: 'bold'}}>
+            <Text
+              style={{
+                fontSize: 25,
+                fontFamily: 'OpenSans-Bold',
+                color: 'black',
+              }}>
               Informations de livraison
             </Text>
           </View>
@@ -244,9 +294,19 @@ const InfoCommandeComponent = () => {
               padding: 20,
               flexDirection: 'row',
               alignItems: 'center',
+              right: 10,
             }}>
-            <Icon sizeIcon={40} icon={user} />
-            <Text numberOfLines={1} style={{fontSize: 18}}>
+            <Image
+              source={pin}
+              style={{width: 35, height: 35, tintColor: '#eccc68'}}
+            />
+            <Text
+              numberOfLines={1}
+              style={{
+                fontSize: 18,
+                fontFamily: 'OpenSans-Bold',
+                color: 'black',
+              }}>
               225,Yamoussoukro, Côte d'ivoire
             </Text>
           </View>
@@ -257,9 +317,19 @@ const InfoCommandeComponent = () => {
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <Icon sizeIcon={40} icon={user} />
-            <Text numberOfLines={1} style={{fontSize: 18}}>
-              Unnamed Road, Yamoussoukro, Côte d'Ivoire
+            <Image
+              source={finish}
+              style={{width: 20, height: 20, tintColor: '#23A082'}}
+            />
+            <Text
+              numberOfLines={1}
+              style={{
+                fontSize: 18,
+                fontFamily: 'OpenSans-Bold',
+                color: 'black',
+                left: 10,
+              }}>
+              Unnamed Road, Yamoussoukro, {'\n'} Côte d'Ivoire
             </Text>
           </View>
 
@@ -270,7 +340,12 @@ const InfoCommandeComponent = () => {
               width: '100%',
             }}>
             <View style={{padding: 20}}>
-              <Text style={{fontSize: 25, fontWeight: 'bold'}}>
+              <Text
+                style={{
+                  fontSize: 25,
+                  fontFamily: 'OpenSans-Bold',
+                  color: 'black',
+                }}>
                 Récapitulatif
               </Text>
               <View
@@ -279,8 +354,12 @@ const InfoCommandeComponent = () => {
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                 }}>
-                <Text style={{fontSize: 18}}>Livraison</Text>
-                <Text style={{fontSize: 18}}>Sans frais</Text>
+                <Text style={{fontSize: 18, fontFamily: 'OpenSans-Bold'}}>
+                  Livraison
+                </Text>
+                <Text style={{fontSize: 18, fontFamily: 'OpenSans-Bold'}}>
+                  Sans frais
+                </Text>
               </View>
               <View
                 style={{
@@ -288,8 +367,12 @@ const InfoCommandeComponent = () => {
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                 }}>
-                <Text style={{fontSize: 18}}>Produits</Text>
-                <Text style={{fontSize: 18}}>Sans frais</Text>
+                <Text style={{fontSize: 18, fontFamily: 'OpenSans-Bold'}}>
+                  Produits
+                </Text>
+                <Text style={{fontSize: 18, fontFamily: 'OpenSans-Bold'}}>
+                  Sans frais
+                </Text>
               </View>
               <View
                 style={{
@@ -297,8 +380,20 @@ const InfoCommandeComponent = () => {
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                 }}>
-                <Text style={{fontSize: 23, fontWeight: 'bold'}}>Total</Text>
-                <Text style={{fontSize: 23, fontWeight: 'bold'}}>
+                <Text
+                  style={{
+                    fontSize: 23,
+                    fontFamily: 'OpenSans-Bold',
+                    color: 'black',
+                  }}>
+                  Total
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 23,
+                    fontFamily: 'OpenSans-Bold',
+                    color: 'black',
+                  }}>
                   Sans frais
                 </Text>
               </View>

@@ -120,9 +120,7 @@ const MesCommandesComponent = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => openDrawer()}>
-          <Icon onPress={() => {}} sizeIcon={15} icon={leftArrow} />
-        </TouchableOpacity>
+        <Icon onPress={() => goBack()} sizeIcon={15} icon={leftArrow} />
         <Text style={{fontSize: 20, fontFamily: 'OpenSans-Bold'}}>
           Mes Commandes
         </Text>

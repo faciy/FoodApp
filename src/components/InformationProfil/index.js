@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import styles from './styles';
-import rightArrow from '../../../assets/images/rightArrow.png';
+import leftArrow from '../../../assets/images/leftArrow.png';
 import user from '../../../assets/images/user.png';
-import food from '../../../assets/images/food.jpg';
+import ArrowLeft from '../../../assets/images/ArrowLeft.png';
 import Icon from '../common/Icon';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
@@ -14,7 +14,7 @@ const InformationProfilComponent = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Icon onPress={() => goBack()} sizeIcon={15} icon={rightArrow} />
+        <Icon onPress={() => goBack()} sizeIcon={15} icon={leftArrow} />
         <Text style={{fontSize: 20}}>Mes Informations</Text>
       </View>
       <View style={styles.body}>
@@ -44,7 +44,7 @@ const InformationProfilComponent = () => {
             }}>
             <Text style={{fontSize: 20}}>Modifier mon mot de passe</Text>
             <View style={{left: 4}}>
-              <Icon onPress={() => {}} sizeIcon={15} icon={rightArrow} />
+              <Icon onPress={() => {}} sizeIcon={15} icon={ArrowLeft} />
             </View>
           </View>
         </TouchableOpacity>
@@ -62,7 +62,7 @@ const InformationProfilComponent = () => {
               Modifier mon numéro {'\n'}de téléphone
             </Text>
             <View style={{left: 45}}>
-              <Icon onPress={() => {}} sizeIcon={15} icon={rightArrow} />
+              <Icon onPress={() => {}} sizeIcon={15} icon={ArrowLeft} />
             </View>
           </View>
         </TouchableOpacity>
@@ -78,7 +78,7 @@ const InformationProfilComponent = () => {
             }}>
             <Text style={{fontSize: 20}}>Mode de paiement</Text>
             <View style={{left: 85}}>
-              <Icon onPress={() => {}} sizeIcon={15} icon={rightArrow} />
+              <Icon onPress={() => {}} sizeIcon={15} icon={ArrowLeft} />
             </View>
           </View>
         </TouchableOpacity>
@@ -92,7 +92,7 @@ const InformationProfilComponent = () => {
             }}>
             <Text style={{fontSize: 20}}>Gérer la confidentialité</Text>
             <View style={{left: 50}}>
-              <Icon onPress={() => {}} sizeIcon={15} icon={rightArrow} />
+              <Icon onPress={() => {}} sizeIcon={15} icon={ArrowLeft} />
             </View>
           </View>
         </TouchableOpacity>

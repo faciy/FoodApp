@@ -19,7 +19,7 @@ import leftArrow from '../../../assets/images/leftArrow.png';
 import pin from '../../../assets/images/pin.png';
 import finish from '../../../assets/images/finish.png';
 import telephone from '../../../assets/images/telephone.png';
-import user from '../../../assets/images/user.png';
+import shopping from '../../../assets/images/shopping.png';
 import facebook from '../../../assets/images/facebook.png';
 import Icon from '../common/Icon';
 import {useNavigation} from '@react-navigation/native';
@@ -111,35 +111,77 @@ const datas = [
 const {add, set, block, cond, eq, multiply, max, concat} = Animated;
 
 const InfoCommandeComponent = ({image, statut, nameRest, commande}) => {
-  const {navigate, toggleDrawer} = useNavigation();
-  const taille = Dimensions.get('screen');
-  // const scroolAnimated = useRef(new Animated.Value(0)).current;
+  const scroolAnimated = useRef(new Animated.Value(0)).current;
+  const {navigate, goBack, DrawerActions} = useNavigation();
+
+  console.log('scroolAnimated', scroolAnimated);
   // const scroolAnimated = useRef(new Animated.Value(10)).current;
 
   // const Header_Max_Height = 0;
   // const Header_Mix_Height = 50;
 
-  // const animatedHeight = scroolAnimated.interpolate({
-  //   inputRange: [0, 347],
-  //   outputRange: ['30%', '10%'],
-  //   extrapolate: 'clamp',
-  // });
+  const animatedOpacity = scroolAnimated.interpolate({
+    inputRange: [0, 100],
+    outputRange: [0, 1],
+    extrapolate: 'clamp',
+  });
 
-  // const animatedMargin = scroolAnimated.interpolate({
-  //   inputRange: [0, 347],
-  //   outputRange: [0, 20],
-  //   extrapolate: 'clamp',
-  // });
-
-  // const animatedBackground = scroolAnimated.interpolate({
-  //   inputRange: [0, 1172],
-  //   outputRange: ['transparent', 'red'],
-  //   extrapolate: 'clamp',
-  // });
+  const animatedBackground = scroolAnimated.interpolate({
+    inputRange: [0, 100],
+    outputRange: ['transparent', 'white'],
+    extrapolate: 'clamp',
+  });
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
+        <Animated.View
+          style={{
+            backgroundColor: animatedBackground,
+            width: '100%',
+            height: 60,
+            position: 'absolute',
+            zIndex: 1,
+            shadowColor: 'rgba(0, 0, 0, 0.50)',
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+            elevation: 30,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-around',
+          }}>
+          <Animated.View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              opacity: animatedOpacity,
+            }}>
+            <Icon onPress={() => goBack()} sizeIcon={15} icon={leftArrow} />
+            <Text style={{fontSize: 18, fontFamily: 'OpenSans-Bold'}}>
+              Restaurant Grâce Delice
+            </Text>
+          </Animated.View>
+          <TouchableOpacity
+            onPress={() => navigate('Help')}
+            style={{
+              alignItems: 'center',
+            }}>
+            <Animated.Text
+              style={{
+                color: '#23A082',
+                fontSize: 18,
+                fontFamily: 'OpenSans-Bold',
+                opacity: animatedOpacity,
+              }}>
+              Aide
+            </Animated.Text>
+          </TouchableOpacity>
+        </Animated.View>
+
         <ImageBackground source={image} style={{width: '100%', height: '100%'}}>
           <View style={[styles.helpView]}>
             <Icon sizeIcon={15} icon={leftArrow} bgIcon="white" />
@@ -219,18 +261,19 @@ const InfoCommandeComponent = ({image, statut, nameRest, commande}) => {
             backgroundColor: 'white',
             height: '140%',
           }}
-          // onScroll={Animated.event(
-          //   [
-          //     {
-          //       nativeEvent: {contentOffset: {y: scroolAnimated}},
-          //     },
-          //   ],
-          //   {useNativeDriver: false},
-          // )}
+          onScroll={Animated.event(
+            [
+              {
+                nativeEvent: {contentOffset: {y: scroolAnimated}},
+              },
+            ],
+            {useNativeDriver: false},
+          )}
+          // onScroll={e => console.log('e', e)}
         >
           <View style={styles.top}>
-            <Icon sizeIcon={40} icon={user} bgIcon="white" />
-            <View>
+            <Icon sizeIcon={70} icon={shopping} bgIcon="white" />
+            <View style={{left: 15}}>
               <Text
                 style={{
                   fontSize: 30,

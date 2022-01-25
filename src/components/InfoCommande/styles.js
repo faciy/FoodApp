@@ -6,14 +6,19 @@ export default StyleSheet.create({
   },
   header: {
     // backgroundColor: 'red',
-    height: 300,
+    // backgroundColor: 'blue',
     position: 'absolute',
-    zIndex: 1,
+    width: '100%',
+    height: '35%',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // top: 0,
+    // zIndex: 1,
   },
-  body: {
-    backgroundColor: 'white',
-    // flex: 4,
-  },
+  // body: {
+  //   backgroundColor: 'white',
+  //   // flex: 4,
+  // },
   helpView: {
     padding: 20,
     flexDirection: 'row',

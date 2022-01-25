@@ -8,13 +8,18 @@ import {
   Pressable,
   Image,
   FlatList,
+  SafeAreaView,
+  ScrollView,
 } from 'react-native';
 import {requestLocationPermission} from '../utils/Permissions';
 import styles from './styles';
-import user from '../../assets/images/user.png';
+import downArrow from '../../assets/images/downArrow.png';
 import foodDelivery from '../../assets/images/foodDelivery.png';
 import food from '../../assets/images/food.jpg';
 import rightArrow from '../../assets/images/rightArrow.png';
+import search from '../../assets/images/search.png';
+import user from '../../assets/images/user.png';
+import gift from '../../assets/images/gift.png';
 import Icon from '../components/common/Icon';
 import BottomSheet from 'react-native-bottomsheet-reanimated';
 import {useNavigation} from '@react-navigation/native';
@@ -246,38 +251,6 @@ const datas = [
     restaurant: 'Chez Samer',
     aliment: 'Chawarma',
   },
-  {
-    id: 7,
-    statut: 'GRATUIT',
-    pourcentage: 93,
-    icon: user,
-    restaurant: 'Chez Samer',
-    aliment: 'Chawarma',
-  },
-  {
-    id: 8,
-    statut: 'GRATUIT',
-    pourcentage: 93,
-    icon: user,
-    restaurant: 'Chez Samer',
-    aliment: 'Chawarma',
-  },
-  {
-    id: 9,
-    statut: 'GRATUIT',
-    pourcentage: 93,
-    icon: user,
-    restaurant: 'Chez Samer',
-    aliment: 'Chawarma',
-  },
-  {
-    id: 10,
-    statut: 'GRATUIT',
-    pourcentage: 93,
-    icon: user,
-    restaurant: 'Chez Samer',
-    aliment: 'Chawarma',
-  },
 ];
 
 const HomeComponent = () => {
@@ -316,6 +289,14 @@ const HomeComponent = () => {
     navigate('DejSnack');
   };
 
+  const handleGift = () => {
+    navigate('PromoReview');
+  };
+
+  const handleShowProfil = () => {
+    toggleDrawer();
+  };
+
   const renderItem = () => {
     return (
       <TouchableOpacity
@@ -326,7 +307,9 @@ const HomeComponent = () => {
             source={food}
             style={{width: 160, height: 120, borderRadius: 10}}
           />
-          <Text>Chez Samejrdrrtjfuffuyfiuyfuyfuyftftfytr</Text>
+          <Text style={{fontFamily: 'OpenSans-Bold', color: 'black'}}>
+            Chez Samer
+          </Text>
           <View
             style={{
               position: 'absolute',
@@ -339,14 +322,16 @@ const HomeComponent = () => {
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-            <Text style={{color: 'white'}}>Chawarma</Text>
+            <Text style={{color: 'white', fontFamily: 'OpenSans-Bold'}}>
+              Chawarma
+            </Text>
           </View>
         </View>
         <View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
-            left: -20,
+            left: -10,
             bottom: 5,
           }}>
           <Icon sizeIcon={15} icon={user} />
@@ -364,7 +349,10 @@ const HomeComponent = () => {
             <View style={{right: 5}}>
               <Icon sizeIcon={15} icon={user} />
             </View>
-            <Text style={{left: -10, fontWeight: 'bold'}}>GRATUIT</Text>
+            <Text
+              style={{left: -10, fontFamily: 'OpenSans-Bold', color: 'black'}}>
+              GRATUIT
+            </Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -374,264 +362,300 @@ const HomeComponent = () => {
   // const onChange = () =
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={{zIndex: 1}}>
-          <Icon
-            onPress={() => console.log('Icon')}
-            bgIcon="#dfe6e9"
-            sizeIcon={25}
-            icon={user}
-          />
-        </View>
-        <TouchableOpacity
-          onPress={() => console.log('huguygygu')}
+    <SafeAreaView style={styles.container}>
+      <View style={styles.otherContainer}>
+        <View
           style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            backgroundColor: 'white',
-            width: '70%',
-            height: 40,
-            justifyContent: 'center',
-            flexDirection: 'row',
-            borderRadius: 50,
+            // backgroundColor: 'yellow',
+            width: '120%',
+            height: 65,
+            position: 'absolute',
             zIndex: 1,
-          }}>
-          <Icon sizeIcon={15} icon={user} />
-          <Text>Qu'est ce qu'on vous propose</Text>
-        </TouchableOpacity>
-        <View style={{zIndex: 1}}>
-          <Icon onPress={() => {}} bgIcon="#dfe6e9" sizeIcon={25} icon={user} />
-        </View>
-      </View>
-      {/* Buton Emplacement */}
-      <TouchableOpacity
-        onPress={() => navigate('AdresseMap')}
-        style={{
-          alignItems: 'center',
-          // marginTop: 20,
-          flexDirection: 'row',
-          justifyContent: 'center',
-          zIndex: 0.5,
-        }}>
-        <Text style={{fontWeight: 'bold', textAlign: 'center'}}>
-          Emplacement actuelle
-        </Text>
-        <Icon sizeIcon={15} icon={user} />
-      </TouchableOpacity>
-
-      {/* GRAND CERCLE  */}
-      <RotationGestureHandler
-        onGestureEvent={handleRotate}
-        onHandlerStateChange={handleRotate}>
-        {/* FIRST  */}
-        <Animated.View
-          style={[
-            styles.cercle,
-            {transform: [{rotate: concat(rotation, 'rad')}]},
-          ]}>
-          <PanGestureHandler
-            onGestureEvent={handlePan}
-            onHandlerStateChange={handlePan}>
-            <Animated.View
-              style={[
-                styles.first,
-                {transform: [{translateX: transX, translateY: transY}]},
-              ]}>
-              <TapGestureHandler onHandlerStateChange={handleMagique}>
-                <Animated.View>
-                  <Icon sizeIcon={50} icon={foodDelivery} />
-                  <Text
-                    style={{
-                      fontSize: 20,
-                      fontWeight: 'bold',
-                      textAlign: 'center',
-                    }}>
-                    Magique
-                  </Text>
-                </Animated.View>
-              </TapGestureHandler>
-            </Animated.View>
-          </PanGestureHandler>
-
-          {/* SECOND  */}
-          <PanGestureHandler
-            onGestureEvent={handlePanTwo}
-            onHandlerStateChange={handlePanTwo}>
-            <Animated.View
-              style={[
-                styles.two,
-                {transform: [{translateX: transXTwo, translateY: transYTwo}]},
-              ]}>
-              {/* <Icon sizeIcon={50} icon={foodDelivery} />
-              <Text
-                style={{fontSize: 20, fontWeight: 'bold', textAlign: 'center'}}>
-                P'tit déj et snacks
-              </Text> */}
-              <TapGestureHandler onHandlerStateChange={handleDej}>
-                <Animated.View>
-                  <Icon sizeIcon={50} icon={foodDelivery} />
-                  <Text
-                    style={{
-                      fontSize: 20,
-                      fontWeight: 'bold',
-                      textAlign: 'center',
-                    }}>
-                    P'tit déj et snacks
-                  </Text>
-                </Animated.View>
-              </TapGestureHandler>
-            </Animated.View>
-          </PanGestureHandler>
-
-          {/* THIRST  */}
-          <PanGestureHandler
-            onGestureEvent={handlePanThree}
-            onHandlerStateChange={handlePanThree}>
-            <Animated.View
-              style={[
-                styles.three,
-                {
-                  transform: [
-                    {translateX: transXThree, translateY: transYThree},
-                  ],
-                },
-              ]}>
-              <TapGestureHandler onHandlerStateChange={handleFaim}>
-                <Animated.View>
-                  <Icon sizeIcon={50} icon={foodDelivery} />
-                  <Text
-                    style={{
-                      fontSize: 20,
-                      fontWeight: 'bold',
-                      textAlign: 'center',
-                    }}>
-                    J'ai faim
-                  </Text>
-                </Animated.View>
-              </TapGestureHandler>
-            </Animated.View>
-          </PanGestureHandler>
-
-          {/* QUARTRE  */}
-          <PanGestureHandler
-            onGestureEvent={handlePanFour}
-            onHandlerStateChange={handlePanFour}>
-            <Animated.View
-              style={[
-                styles.four,
-                {
-                  transform: [{translateX: transXFour, translateY: transYFour}],
-                },
-              ]}>
-              <TapGestureHandler onHandlerStateChange={handleSupermarche}>
-                <Animated.View>
-                  <Icon sizeIcon={50} icon={foodDelivery} />
-                  <Text
-                    style={{
-                      fontSize: 20,
-                      fontWeight: 'bold',
-                      textAlign: 'center',
-                    }}>
-                    Supermarché & Alcools
-                  </Text>
-                </Animated.View>
-              </TapGestureHandler>
-            </Animated.View>
-          </PanGestureHandler>
-
-          {/* CINQ  */}
-          <PanGestureHandler
-            onGestureEvent={handlePanFive}
-            onHandlerStateChange={handlePanFive}>
-            <Animated.View
-              style={[
-                styles.five,
-                {
-                  transform: [{translateX: transXFive, translateY: transYFive}],
-                },
-              ]}>
-              <TapGestureHandler onHandlerStateChange={handleLivraison}>
-                <Animated.View>
-                  <Icon sizeIcon={50} icon={foodDelivery} />
-                  <Text
-                    style={{
-                      fontSize: 20,
-                      fontWeight: 'bold',
-                      textAlign: 'center',
-                    }}>
-                    Livraison Express
-                  </Text>
-                </Animated.View>
-              </TapGestureHandler>
-            </Animated.View>
-          </PanGestureHandler>
-
-          {/* SIX  */}
-          <PanGestureHandler
-            onGestureEvent={handlePanSix}
-            onHandlerStateChange={handlePanSix}>
-            <Animated.View
-              style={[
-                styles.six,
-                {
-                  transform: [{translateX: transXSix, translateY: transYSix}],
-                },
-              ]}>
-              <TapGestureHandler onHandlerStateChange={handleBoutique}>
-                <Animated.View>
-                  <Icon sizeIcon={50} icon={foodDelivery} />
-                  <Text
-                    style={{
-                      fontSize: 20,
-                      fontWeight: 'bold',
-                      textAlign: 'center',
-                    }}>
-                    Nos boutiques
-                  </Text>
-                </Animated.View>
-              </TapGestureHandler>
-            </Animated.View>
-          </PanGestureHandler>
-          {/* FIN  */}
-        </Animated.View>
-      </RotationGestureHandler>
-
-      <BottomSheet
-        // keyboardAware
-        bottomSheerColor="#FFFFFF"
-        ref={sheetRef}
-        initialPosition={'10%'} //200, 300
-        snapPoints={['10%', '20%', '30%', '40%', '50%', '90%']}
-        isBackDrop={true}
-        // isBackDropDismissByPress={true}
-        isRoundBorderWithTipHeader={true}
-        onChangeSnap={e => console.log(e)}
-        // backDropColor="red"
-        // isModal={false}
-        // containerStyle={{position: 'absolute', zIndex: 1}}
-        // tipStyle={{backgroundColor: 'red'}}
-        // headerStyle={{backgroundColor:"red"}}
-        // bodyStyle={{backgroundColor: 'red'}}
-        header={
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Icon sizeIcon={25} icon={user} />
-              <Text style={{fontSize: 20}}>Vous pourriez aimer</Text>
-            </View>
-            <Icon sizeIcon={25} icon={rightArrow} />
+            shadowColor: 'rgba(0, 0, 0, 0.50)',
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+            elevation: 30,
+          }}></View>
+        <View style={styles.header}>
+          <View style={{}}>
+            <Icon
+              onPress={() => handleShowProfil()}
+              bgIcon="#ffeaa7"
+              sizeIcon={20}
+              icon={user}
+            />
           </View>
-        }
-        body={
-          <FlatList
-            data={datas}
-            numColumns={2}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
-          />
-        }
-      />
-    </View>
+          <TouchableOpacity
+            onPress={() => console.log('huguygygu')}
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              backgroundColor: '#ffeaa7',
+              width: '70%',
+              height: 40,
+              justifyContent: 'center',
+              flexDirection: 'row',
+              borderRadius: 50,
+              zIndex: 1,
+            }}>
+            <Icon sizeIcon={15} icon={search} />
+            <Text style={{fontFamily: 'OpenSans-Regular'}}>
+              Qu'est ce qu'on vous propose
+            </Text>
+          </TouchableOpacity>
+          <View style={{}}>
+            <Icon
+              bgIcon="#ffeaa7"
+              sizeIcon={20}
+              icon={gift}
+              onPress={() => handleGift()}
+            />
+          </View>
+        </View>
+        {/* Buton Emplacement */}
+        <TouchableOpacity
+          onPress={() => navigate('AdresseMap')}
+          style={{
+            alignItems: 'center',
+            // marginTop: 20,
+            flexDirection: 'row',
+            justifyContent: 'center',
+            zIndex: 0.5,
+          }}>
+          <Text
+            style={{
+              fontFamily: 'OpenSans-Bold',
+              textAlign: 'center',
+              color: 'black',
+            }}>
+            Emplacement actuelle
+          </Text>
+          <Icon sizeIcon={15} icon={downArrow} />
+        </TouchableOpacity>
+
+        {/* GRAND CERCLE  */}
+        <RotationGestureHandler
+          onGestureEvent={handleRotate}
+          onHandlerStateChange={handleRotate}>
+          {/* FIRST  */}
+          <Animated.View
+            style={[
+              styles.cercle,
+              {transform: [{rotate: concat(rotation, 'rad')}]},
+            ]}>
+            <PanGestureHandler
+              onGestureEvent={handlePan}
+              onHandlerStateChange={handlePan}>
+              <Animated.View
+                style={[
+                  styles.first,
+                  {transform: [{translateX: transX, translateY: transY}]},
+                ]}>
+                <TapGestureHandler onHandlerStateChange={handleMagique}>
+                  <Animated.View>
+                    <Icon sizeIcon={50} icon={foodDelivery} />
+                    <Text
+                      style={{
+                        fontSize: 16,
+                        textAlign: 'center',
+                        fontFamily: 'OpenSans-Regular',
+                        color: 'black',
+                      }}>
+                      Magique
+                    </Text>
+                  </Animated.View>
+                </TapGestureHandler>
+              </Animated.View>
+            </PanGestureHandler>
+
+            {/* SECOND  */}
+            <PanGestureHandler
+              onGestureEvent={handlePanTwo}
+              onHandlerStateChange={handlePanTwo}>
+              <Animated.View
+                style={[
+                  styles.two,
+                  {transform: [{translateX: transXTwo, translateY: transYTwo}]},
+                ]}>
+                <TapGestureHandler onHandlerStateChange={handleDej}>
+                  <Animated.View>
+                    <Icon sizeIcon={50} icon={foodDelivery} />
+                    <Text
+                      style={{
+                        fontSize: 16,
+                        textAlign: 'center',
+                        fontFamily: 'OpenSans-Regular',
+                        color: 'black',
+                      }}>
+                      P'tit déj et snacks
+                    </Text>
+                  </Animated.View>
+                </TapGestureHandler>
+              </Animated.View>
+            </PanGestureHandler>
+
+            {/* THIRST  */}
+            <PanGestureHandler
+              onGestureEvent={handlePanThree}
+              onHandlerStateChange={handlePanThree}>
+              <Animated.View
+                style={[
+                  styles.three,
+                  {
+                    transform: [
+                      {translateX: transXThree, translateY: transYThree},
+                    ],
+                  },
+                ]}>
+                <TapGestureHandler onHandlerStateChange={handleFaim}>
+                  <Animated.View>
+                    <Icon sizeIcon={50} icon={foodDelivery} />
+                    <Text
+                      style={{
+                        fontSize: 16,
+                        textAlign: 'center',
+                        fontFamily: 'OpenSans-Regular',
+                        color: 'black',
+                      }}>
+                      J'ai faim
+                    </Text>
+                  </Animated.View>
+                </TapGestureHandler>
+              </Animated.View>
+            </PanGestureHandler>
+
+            {/* QUARTRE  */}
+            <PanGestureHandler
+              onGestureEvent={handlePanFour}
+              onHandlerStateChange={handlePanFour}>
+              <Animated.View
+                style={[
+                  styles.four,
+                  {
+                    transform: [
+                      {translateX: transXFour, translateY: transYFour},
+                    ],
+                  },
+                ]}>
+                <TapGestureHandler onHandlerStateChange={handleSupermarche}>
+                  <Animated.View>
+                    <Icon sizeIcon={50} icon={foodDelivery} />
+                    <Text
+                      style={{
+                        fontSize: 16,
+                        textAlign: 'center',
+                        fontFamily: 'OpenSans-Regular',
+                        color: 'black',
+                      }}>
+                      Supermarché & Alcools
+                    </Text>
+                  </Animated.View>
+                </TapGestureHandler>
+              </Animated.View>
+            </PanGestureHandler>
+
+            {/* CINQ  */}
+            <PanGestureHandler
+              onGestureEvent={handlePanFive}
+              onHandlerStateChange={handlePanFive}>
+              <Animated.View
+                style={[
+                  styles.five,
+                  {
+                    transform: [
+                      {translateX: transXFive, translateY: transYFive},
+                    ],
+                  },
+                ]}>
+                <TapGestureHandler onHandlerStateChange={handleLivraison}>
+                  <Animated.View>
+                    <Icon sizeIcon={50} icon={foodDelivery} />
+                    <Text
+                      style={{
+                        fontSize: 16,
+                        textAlign: 'center',
+                        fontFamily: 'OpenSans-Regular',
+                        color: 'black',
+                      }}>
+                      Livraison Express
+                    </Text>
+                  </Animated.View>
+                </TapGestureHandler>
+              </Animated.View>
+            </PanGestureHandler>
+
+            {/* SIX  */}
+            <PanGestureHandler
+              onGestureEvent={handlePanSix}
+              onHandlerStateChange={handlePanSix}>
+              <Animated.View
+                style={[
+                  styles.six,
+                  {
+                    transform: [{translateX: transXSix, translateY: transYSix}],
+                  },
+                ]}>
+                <TapGestureHandler onHandlerStateChange={handleBoutique}>
+                  <Animated.View>
+                    <Icon sizeIcon={50} icon={foodDelivery} />
+                    <Text
+                      style={{
+                        fontSize: 16,
+                        textAlign: 'center',
+                        fontFamily: 'OpenSans-Regular',
+                        color: 'black',
+                      }}>
+                      Nos boutiques
+                    </Text>
+                  </Animated.View>
+                </TapGestureHandler>
+              </Animated.View>
+            </PanGestureHandler>
+            {/* FIN  */}
+          </Animated.View>
+        </RotationGestureHandler>
+      </View>
+      <View>
+        <FlatList
+          scrollEventThrottle={16}
+          contentContainerStyle={{
+            marginTop: '160%',
+            backgroundColor: 'white',
+            height: '173%',
+          }}
+          ListHeaderComponent={
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginTop: 10,
+                padding: 20,
+              }}>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <Icon sizeIcon={25} icon={user} />
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontFamily: 'OpenSans-Bold',
+                    color: 'black',
+                  }}>
+                  Vous pourriez aimer
+                </Text>
+              </View>
+              <Icon sizeIcon={20} icon={rightArrow} />
+            </View>
+          }
+          data={datas}
+          numColumns={2}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+        />
+      </View>
+    </SafeAreaView>
   );
 };
 

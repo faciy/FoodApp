@@ -3,6 +3,12 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
+  },
+  otherContainer: {
+    height: '85%',
+    position: 'absolute',
+    // zIndex: 1,
+    width: '100%',
     padding: 20,
     backgroundColor: '#FCC332',
   },
@@ -25,6 +31,7 @@ export default StyleSheet.create({
   body: {
     paddingHorizontal: 20,
     alignSelf: 'center',
+    marginTop: 10,
   },
   circle: {
     width: 150,

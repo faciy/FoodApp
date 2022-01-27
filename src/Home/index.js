@@ -255,7 +255,7 @@ const datas = [
 
 const HomeComponent = () => {
   const sheetRef = useRef('BottomSheet');
-  const {navigate} = useNavigation();
+  const {navigate, toggleDrawer} = useNavigation();
 
   const {rotation, handleRotate} = useRotate();
   const {transX, transY, handlePan} = usePan();
@@ -364,260 +364,231 @@ const HomeComponent = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.otherContainer}>
-        <View
-          style={{
-            // backgroundColor: 'yellow',
-            width: '120%',
-            height: 65,
-            position: 'absolute',
-            zIndex: 1,
-            shadowColor: 'rgba(0, 0, 0, 0.50)',
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            shadowOpacity: 0.25,
-            shadowRadius: 3.84,
-            elevation: 30,
-          }}></View>
         <View style={styles.header}>
-          <View style={{}}>
-            <Icon
-              onPress={() => handleShowProfil()}
-              bgIcon="#ffeaa7"
-              sizeIcon={20}
-              icon={user}
-            />
-          </View>
-          <TouchableOpacity
-            onPress={() => console.log('huguygygu')}
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              backgroundColor: '#ffeaa7',
-              width: '70%',
-              height: 40,
-              justifyContent: 'center',
-              flexDirection: 'row',
-              borderRadius: 50,
-              zIndex: 1,
-            }}>
-            <Icon sizeIcon={15} icon={search} />
-            <Text style={{fontFamily: 'OpenSans-Regular'}}>
-              Qu'est ce qu'on vous propose
-            </Text>
-          </TouchableOpacity>
-          <View style={{}}>
-            <Icon
-              bgIcon="#ffeaa7"
-              sizeIcon={20}
-              icon={gift}
-              onPress={() => handleGift()}
-            />
-          </View>
+          <TapGestureHandler onHandlerStateChange={handleShowProfil}>
+            <Animated.View>
+              <Icon bgIcon="#ffeaa7" sizeIcon={20} icon={user} />
+            </Animated.View>
+          </TapGestureHandler>
+          <TapGestureHandler
+            onHandlerStateChange={() => navigate('SearchLocation')}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                backgroundColor: '#ffeaa7',
+                width: '70%',
+                height: 40,
+                justifyContent: 'center',
+                flexDirection: 'row',
+                borderRadius: 50,
+                zIndex: 1,
+              }}>
+              <Icon sizeIcon={15} icon={search} />
+              <Text style={{fontFamily: 'OpenSans-Regular'}}>
+                Qu'est ce qu'on vous propose
+              </Text>
+            </View>
+          </TapGestureHandler>
+          <TapGestureHandler onHandlerStateChange={handleGift}>
+            <Animated.View>
+              <Icon
+                bgIcon="#ffeaa7"
+                sizeIcon={20}
+                icon={gift}
+                // onPress={() => console.log('GIFT')}
+              />
+            </Animated.View>
+          </TapGestureHandler>
         </View>
         {/* Buton Emplacement */}
-        <TouchableOpacity
-          onPress={() => navigate('AdresseMap')}
-          style={{
-            alignItems: 'center',
-            // marginTop: 20,
-            flexDirection: 'row',
-            justifyContent: 'center',
-            zIndex: 0.5,
-          }}>
-          <Text
+        <TapGestureHandler onHandlerStateChange={() => navigate('AdresseMap')}>
+          <Animated.View
             style={{
-              fontFamily: 'OpenSans-Bold',
-              textAlign: 'center',
-              color: 'black',
+              alignItems: 'center',
+              // marginTop: 20,
+              flexDirection: 'row',
+              justifyContent: 'center',
+              // zIndex: 0.5,
             }}>
-            Emplacement actuelle
-          </Text>
-          <Icon sizeIcon={15} icon={downArrow} />
-        </TouchableOpacity>
+            <Text
+              style={{
+                fontFamily: 'OpenSans-Bold',
+                textAlign: 'center',
+                color: 'black',
+              }}>
+              Emplacement actuelle
+            </Text>
+            <Icon sizeIcon={15} icon={downArrow} />
+          </Animated.View>
+        </TapGestureHandler>
 
         {/* GRAND CERCLE  */}
-        <RotationGestureHandler
-          onGestureEvent={handleRotate}
-          onHandlerStateChange={handleRotate}>
-          {/* FIRST  */}
+
+        {/* FIRST  */}
+        <Animated.View
+          style={[
+            styles.cercle,
+            {transform: [{rotate: concat(rotation, 'rad')}]},
+          ]}>
+          {/* <PanGestureHandler
+            onGestureEvent={handlePan}
+            onHandlerStateChange={handlePan}> */}
           <Animated.View
             style={[
-              styles.cercle,
-              {transform: [{rotate: concat(rotation, 'rad')}]},
+              styles.first,
+              {transform: [{translateX: transX, translateY: transY}]},
             ]}>
-            <PanGestureHandler
-              onGestureEvent={handlePan}
-              onHandlerStateChange={handlePan}>
-              <Animated.View
-                style={[
-                  styles.first,
-                  {transform: [{translateX: transX, translateY: transY}]},
-                ]}>
-                <TapGestureHandler onHandlerStateChange={handleMagique}>
-                  <Animated.View>
-                    <Icon sizeIcon={50} icon={foodDelivery} />
-                    <Text
-                      style={{
-                        fontSize: 16,
-                        textAlign: 'center',
-                        fontFamily: 'OpenSans-Regular',
-                        color: 'black',
-                      }}>
-                      Magique
-                    </Text>
-                  </Animated.View>
-                </TapGestureHandler>
+            <TapGestureHandler onHandlerStateChange={handleMagique}>
+              <Animated.View>
+                <Icon sizeIcon={50} icon={foodDelivery} />
+                <Text
+                  style={{
+                    fontSize: 16,
+                    textAlign: 'center',
+                    fontFamily: 'OpenSans-Regular',
+                    color: 'black',
+                  }}>
+                  Magique
+                </Text>
               </Animated.View>
-            </PanGestureHandler>
-
-            {/* SECOND  */}
-            <PanGestureHandler
-              onGestureEvent={handlePanTwo}
-              onHandlerStateChange={handlePanTwo}>
-              <Animated.View
-                style={[
-                  styles.two,
-                  {transform: [{translateX: transXTwo, translateY: transYTwo}]},
-                ]}>
-                <TapGestureHandler onHandlerStateChange={handleDej}>
-                  <Animated.View>
-                    <Icon sizeIcon={50} icon={foodDelivery} />
-                    <Text
-                      style={{
-                        fontSize: 16,
-                        textAlign: 'center',
-                        fontFamily: 'OpenSans-Regular',
-                        color: 'black',
-                      }}>
-                      P'tit déj et snacks
-                    </Text>
-                  </Animated.View>
-                </TapGestureHandler>
-              </Animated.View>
-            </PanGestureHandler>
-
-            {/* THIRST  */}
-            <PanGestureHandler
-              onGestureEvent={handlePanThree}
-              onHandlerStateChange={handlePanThree}>
-              <Animated.View
-                style={[
-                  styles.three,
-                  {
-                    transform: [
-                      {translateX: transXThree, translateY: transYThree},
-                    ],
-                  },
-                ]}>
-                <TapGestureHandler onHandlerStateChange={handleFaim}>
-                  <Animated.View>
-                    <Icon sizeIcon={50} icon={foodDelivery} />
-                    <Text
-                      style={{
-                        fontSize: 16,
-                        textAlign: 'center',
-                        fontFamily: 'OpenSans-Regular',
-                        color: 'black',
-                      }}>
-                      J'ai faim
-                    </Text>
-                  </Animated.View>
-                </TapGestureHandler>
-              </Animated.View>
-            </PanGestureHandler>
-
-            {/* QUARTRE  */}
-            <PanGestureHandler
-              onGestureEvent={handlePanFour}
-              onHandlerStateChange={handlePanFour}>
-              <Animated.View
-                style={[
-                  styles.four,
-                  {
-                    transform: [
-                      {translateX: transXFour, translateY: transYFour},
-                    ],
-                  },
-                ]}>
-                <TapGestureHandler onHandlerStateChange={handleSupermarche}>
-                  <Animated.View>
-                    <Icon sizeIcon={50} icon={foodDelivery} />
-                    <Text
-                      style={{
-                        fontSize: 16,
-                        textAlign: 'center',
-                        fontFamily: 'OpenSans-Regular',
-                        color: 'black',
-                      }}>
-                      Supermarché & Alcools
-                    </Text>
-                  </Animated.View>
-                </TapGestureHandler>
-              </Animated.View>
-            </PanGestureHandler>
-
-            {/* CINQ  */}
-            <PanGestureHandler
-              onGestureEvent={handlePanFive}
-              onHandlerStateChange={handlePanFive}>
-              <Animated.View
-                style={[
-                  styles.five,
-                  {
-                    transform: [
-                      {translateX: transXFive, translateY: transYFive},
-                    ],
-                  },
-                ]}>
-                <TapGestureHandler onHandlerStateChange={handleLivraison}>
-                  <Animated.View>
-                    <Icon sizeIcon={50} icon={foodDelivery} />
-                    <Text
-                      style={{
-                        fontSize: 16,
-                        textAlign: 'center',
-                        fontFamily: 'OpenSans-Regular',
-                        color: 'black',
-                      }}>
-                      Livraison Express
-                    </Text>
-                  </Animated.View>
-                </TapGestureHandler>
-              </Animated.View>
-            </PanGestureHandler>
-
-            {/* SIX  */}
-            <PanGestureHandler
-              onGestureEvent={handlePanSix}
-              onHandlerStateChange={handlePanSix}>
-              <Animated.View
-                style={[
-                  styles.six,
-                  {
-                    transform: [{translateX: transXSix, translateY: transYSix}],
-                  },
-                ]}>
-                <TapGestureHandler onHandlerStateChange={handleBoutique}>
-                  <Animated.View>
-                    <Icon sizeIcon={50} icon={foodDelivery} />
-                    <Text
-                      style={{
-                        fontSize: 16,
-                        textAlign: 'center',
-                        fontFamily: 'OpenSans-Regular',
-                        color: 'black',
-                      }}>
-                      Nos boutiques
-                    </Text>
-                  </Animated.View>
-                </TapGestureHandler>
-              </Animated.View>
-            </PanGestureHandler>
-            {/* FIN  */}
+            </TapGestureHandler>
           </Animated.View>
-        </RotationGestureHandler>
+          {/* </PanGestureHandler> */}
+
+          {/* SECOND  */}
+          {/* <PanGestureHandler
+            onGestureEvent={handlePanTwo}
+            onHandlerStateChange={handlePanTwo}> */}
+          <Animated.View
+            style={[
+              styles.two,
+              {transform: [{translateX: transXTwo, translateY: transYTwo}]},
+            ]}>
+            <TapGestureHandler onHandlerStateChange={handleDej}>
+              <Animated.View>
+                <Icon sizeIcon={50} icon={foodDelivery} />
+                <Text
+                  style={{
+                    fontSize: 16,
+                    textAlign: 'center',
+                    fontFamily: 'OpenSans-Regular',
+                    color: 'black',
+                  }}>
+                  P'tit déj et snacks
+                </Text>
+              </Animated.View>
+            </TapGestureHandler>
+          </Animated.View>
+          {/* </PanGestureHandler> */}
+
+          {/* THIRST  */}
+          {/* <PanGestureHandler
+            onGestureEvent={handlePanThree}
+            onHandlerStateChange={handlePanThree}> */}
+          <Animated.View
+            style={[
+              styles.three,
+              {
+                transform: [{translateX: transXThree, translateY: transYThree}],
+              },
+            ]}>
+            <TapGestureHandler onHandlerStateChange={handleFaim}>
+              <Animated.View>
+                <Icon sizeIcon={50} icon={foodDelivery} />
+                <Text
+                  style={{
+                    fontSize: 16,
+                    textAlign: 'center',
+                    fontFamily: 'OpenSans-Regular',
+                    color: 'black',
+                  }}>
+                  J'ai faim
+                </Text>
+              </Animated.View>
+            </TapGestureHandler>
+          </Animated.View>
+          {/* </PanGestureHandler> */}
+
+          {/* QUARTRE  */}
+          {/* <PanGestureHandler
+            onGestureEvent={handlePanFour}
+            onHandlerStateChange={handlePanFour}> */}
+          <Animated.View
+            style={[
+              styles.four,
+              {
+                transform: [{translateX: transXFour, translateY: transYFour}],
+              },
+            ]}>
+            <TapGestureHandler onHandlerStateChange={handleSupermarche}>
+              <Animated.View>
+                <Icon sizeIcon={50} icon={foodDelivery} />
+                <Text
+                  style={{
+                    fontSize: 16,
+                    textAlign: 'center',
+                    fontFamily: 'OpenSans-Regular',
+                    color: 'black',
+                  }}>
+                  Supermarché & Alcools
+                </Text>
+              </Animated.View>
+            </TapGestureHandler>
+          </Animated.View>
+          {/* </PanGestureHandler> */}
+
+          {/* CINQ  */}
+
+          <Animated.View
+            style={[
+              styles.five,
+              {
+                transform: [{translateX: transXFive, translateY: transYFive}],
+              },
+            ]}>
+            <TapGestureHandler onHandlerStateChange={handleLivraison}>
+              <Animated.View>
+                <Icon sizeIcon={50} icon={foodDelivery} />
+                <Text
+                  style={{
+                    fontSize: 16,
+                    textAlign: 'center',
+                    fontFamily: 'OpenSans-Regular',
+                    color: 'black',
+                  }}>
+                  Livraison Express
+                </Text>
+              </Animated.View>
+            </TapGestureHandler>
+          </Animated.View>
+
+          {/* SIX  */}
+
+          <Animated.View
+            style={[
+              styles.six,
+              {
+                transform: [{translateX: transXFive, translateY: transYFive}],
+              },
+            ]}>
+            <TapGestureHandler onHandlerStateChange={handleBoutique}>
+              <Animated.View>
+                <Icon sizeIcon={50} icon={foodDelivery} />
+                <Text
+                  style={{
+                    fontSize: 16,
+                    textAlign: 'center',
+                    fontFamily: 'OpenSans-Regular',
+                    color: 'black',
+                  }}>
+                  Nos boutiques
+                </Text>
+              </Animated.View>
+            </TapGestureHandler>
+          </Animated.View>
+          {/* FIN  */}
+        </Animated.View>
       </View>
       <View>
         <FlatList

@@ -18,6 +18,7 @@ import Icon from '../common/Icon';
 import Button from '../common/Button';
 import {Backdrop} from 'react-native-backdrop';
 import {Chip} from 'react-native-paper';
+import {useNavigation} from '@react-navigation/native';
 
 const datas = [
   {id: 1, aliment: 'Gâteau au pain'},
@@ -30,6 +31,7 @@ const datas = [
 const DejSnackComponent = () => {
   const [isButonActive, setIsButonActive] = useState(false);
   const [isVisibleBottom, setIsVisibleBottom] = useState(false);
+  const {navigate, toggleDrawer} = useNavigation();
 
   const handleOpen = () => {
     setIsVisibleBottom(true);
@@ -42,7 +44,9 @@ const DejSnackComponent = () => {
   const renderItem = () => {
     return (
       <>
-        <TouchableOpacity style={{padding: 10}}>
+        <TouchableOpacity
+          style={{padding: 10}}
+          onPress={() => navigate('DetailsRestaurant')}>
           <ImageBackground
             imageStyle={{borderRadius: 10}}
             source={ingredient}
@@ -103,7 +107,9 @@ const DejSnackComponent = () => {
   const renderList = ({item}) => {
     return (
       <>
-        <TouchableOpacity style={{padding: 10}}>
+        <TouchableOpacity
+          style={{padding: 10}}
+          onPress={() => navigate('DetailsRestaurant')}>
           <ImageBackground
             imageStyle={{borderRadius: 10}}
             source={food}
@@ -165,7 +171,9 @@ const DejSnackComponent = () => {
   const renderOtherList = () => {
     return (
       <>
-        <TouchableOpacity style={{marginTop: 20}}>
+        <TouchableOpacity
+          style={{marginTop: 20}}
+          onPress={() => navigate('DetailsRestaurant')}>
           <ImageBackground
             imageStyle={{borderRadius: 10}}
             source={coctail}

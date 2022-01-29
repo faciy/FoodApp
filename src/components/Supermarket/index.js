@@ -4,8 +4,18 @@ import styles from './styles.js';
 import user from '../../../assets/images/user.png';
 import foodDelivery from '../../../assets/images/foodDelivery.png';
 import Icon from '../common/Icon';
+import {
+  PanGestureHandler,
+  State,
+  RotationGestureHandler,
+  TapGestureHandler,
+} from 'react-native-gesture-handler';
+import Animated from 'react-native-reanimated';
+import {useNavigation} from '@react-navigation/native';
 
 const SupermarketComponent = () => {
+  const {navigate, toggleDrawer} = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -39,96 +49,114 @@ const SupermarketComponent = () => {
       <View style={{padding: 20, marginTop: '50%'}}>
         {/* FIRST  */}
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <View
-            style={{
-              width: 130,
-              height: 130,
-              backgroundColor: 'white',
-              borderRadius: 130,
-              alignSelf: 'center',
-              alignItems: 'center',
-              justifyContent: 'center',
-              // marginTop: '50%',
-              borderLeftWidth: 5,
-              borderRightWidth: 10,
-              borderBottomWidth: 2,
-            }}>
-            <Icon sizeIcon={50} icon={foodDelivery} />
-            <Text
+          <TapGestureHandler
+            onHandlerStateChange={() => navigate('DetailsRestaurant')}>
+            <Animated.View
               style={{
-                fontSize: 20,
-                fontWeight: 'bold',
-                textAlign: 'center',
+                width: 130,
+                height: 130,
+                backgroundColor: 'white',
+                borderRadius: 130,
+                alignSelf: 'center',
+                alignItems: 'center',
+                justifyContent: 'center',
+                // marginTop: '50%',
+                borderLeftWidth: 5,
+                borderRightWidth: 10,
+                borderBottomWidth: 2,
               }}>
-              Alcools
-            </Text>
-          </View>
+              <Icon sizeIcon={50} icon={foodDelivery} />
+              <Text
+                style={{
+                  fontSize: 16,
+                  textAlign: 'center',
+                  fontFamily: 'OpenSans-Regular',
+                  color: 'black',
+                }}>
+                Alcools
+              </Text>
+            </Animated.View>
+          </TapGestureHandler>
 
           {/* TWO  */}
-          <View
-            style={{
-              width: 130,
-              height: 130,
-              backgroundColor: 'white',
-              borderRadius: 130,
-              alignSelf: 'center',
-              alignItems: 'center',
-              justifyContent: 'center',
-              // top: '0%',
-              // position: 'absolute',
-              borderLeftWidth: 5,
-              borderRightWidth: 10,
-              borderBottomWidth: 2,
-            }}>
-            <Icon sizeIcon={50} icon={foodDelivery} />
-            <Text
+          <TapGestureHandler
+            onHandlerStateChange={() => navigate('DetailsRestaurant')}>
+            <Animated.View
               style={{
-                fontSize: 20,
-                fontWeight: 'bold',
-                textAlign: 'center',
+                width: 130,
+                height: 130,
+                backgroundColor: 'white',
+                borderRadius: 130,
+                alignSelf: 'center',
+                alignItems: 'center',
+                justifyContent: 'center',
+                // top: '0%',
+                // position: 'absolute',
+                borderLeftWidth: 5,
+                borderRightWidth: 10,
+                borderBottomWidth: 2,
               }}>
-              Supermarché
-            </Text>
-          </View>
+              <Icon sizeIcon={50} icon={foodDelivery} />
+              <Text
+                style={{
+                  fontSize: 16,
+                  textAlign: 'center',
+                  fontFamily: 'OpenSans-Regular',
+                  color: 'black',
+                }}>
+                Supermarché
+              </Text>
+            </Animated.View>
+          </TapGestureHandler>
         </View>
 
         {/* THREE  */}
+
         <View
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
             marginTop: 30,
           }}>
-          <View
-            style={{
-              width: 130,
-              height: 130,
-              backgroundColor: 'white',
-              borderRadius: 130,
-              alignItems: 'center',
-              justifyContent: 'center',
-              // marginTop: '50%',
-              marginLeft: '30%',
-              borderLeftWidth: 5,
-              borderRightWidth: 10,
-              borderBottomWidth: 2,
-            }}>
-            <Icon sizeIcon={50} icon={foodDelivery} />
-            <Text
+          <TapGestureHandler
+            onHandlerStateChange={() => navigate('DetailsRestaurant')}>
+            <Animated.View
               style={{
-                fontSize: 20,
-                fontWeight: 'bold',
-                textAlign: 'center',
+                width: 130,
+                height: 130,
+                backgroundColor: 'white',
+                borderRadius: 130,
+                alignItems: 'center',
+                justifyContent: 'center',
+                // marginTop: '50%',
+                marginLeft: '30%',
+                borderLeftWidth: 5,
+                borderRightWidth: 10,
+                borderBottomWidth: 2,
               }}>
-              Marché d'Abidjan
-            </Text>
-          </View>
+              <Icon sizeIcon={50} icon={foodDelivery} />
+              <Text
+                style={{
+                  fontSize: 16,
+                  textAlign: 'center',
+                  fontFamily: 'OpenSans-Regular',
+                  color: 'black',
+                }}>
+                Marché d'Abidjan
+              </Text>
+            </Animated.View>
+          </TapGestureHandler>
 
           {/* TWO  */}
         </View>
         {/* FIN  */}
         <View style={{alignItems: 'center'}}>
-          <Text style={{fontSize: 30, fontWeight: 'bold'}}>
+          <Text
+            style={{
+              fontSize: 30,
+              fontFamily: 'OpenSans-Regular',
+              color: 'black',
+            }}>
             Supermarché & Alcools
           </Text>
         </View>

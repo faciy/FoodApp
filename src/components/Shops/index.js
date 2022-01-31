@@ -16,24 +16,25 @@ import {useNavigation} from '@react-navigation/native';
 const ShopsComponent = () => {
   const {navigate, toggleDrawer} = useNavigation();
 
+  const handleShowProfil = () => {
+    toggleDrawer();
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <View style={{zIndex: 1}}>
-          <Icon
-            onPress={() => console.log('Icon')}
-            bgIcon="#dfe6e9"
-            sizeIcon={25}
-            icon={user}
-          />
-        </View>
+        <TapGestureHandler onHandlerStateChange={handleShowProfil}>
+          <Animated.View>
+            <Icon bgIcon="#ffeaa7" sizeIcon={20} icon={user} />
+          </Animated.View>
+        </TapGestureHandler>
         <TouchableOpacity
           onPress={() => console.log('huguygygu')}
           style={{
             flexDirection: 'row',
             alignItems: 'center',
-            backgroundColor: 'white',
-            width: '90%',
+            backgroundColor: '#ffeaa7',
+            width: '85%',
             height: 40,
             justifyContent: 'center',
             flexDirection: 'row',

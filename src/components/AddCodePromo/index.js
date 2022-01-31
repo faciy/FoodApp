@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from '../common/Icon';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
-import rightArrow from '../../../assets/images/rightArrow.png';
+import leftArrow from '../../../assets/images/leftArrow.png';
 import user from '../../../assets/images/user.png';
 import {TextInput} from 'react-native-gesture-handler';
 
@@ -16,9 +16,7 @@ const AddCodePromoComponent = () => {
     <View style={styles.container}>
       <View style={{backgroundColor: 'white', flex: 1}}>
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => goBack()}>
-            <Icon onPress={() => {}} sizeIcon={15} icon={rightArrow} />
-          </TouchableOpacity>
+          <Icon onPress={() => goBack()} sizeIcon={15} icon={leftArrow} />
           <Text style={{fontSize: 20}}>Codes promo</Text>
         </View>
         <View style={{padding: 20}}>

@@ -134,18 +134,53 @@ const DetailsRestaurant = () => {
             source={food}
             style={{width: 80, height: 80, borderRadius: 80}}
           />
-          <View>
-            <Text>Crêpe Au Sucre</Text>
-            <Text>
+          <View style={{paddingLeft: 20}}>
+            <Text style={{fontFamily: 'OpenSans-Regular', color: 'black'}}>
+              Crêpe Au Sucre
+            </Text>
+            <Text style={{fontFamily: 'OpenSans-Regular'}}>
               Couche fine de pâte,faite {'\n'} à base de farine chocolat {'\n'}{' '}
               nutella et d'oeufs
             </Text>
           </View>
           <View>
-            <Text>2000 XOF</Text>
-            <Text style={{textAlign: 'center', top: 20, fontSize: 20}}>+</Text>
+            <Text style={{fontFamily: 'OpenSans-Bold'}}>2000 XOF</Text>
+            {/* <Text style={{textAlign: 'center', top: 20, fontSize: 20}}>+</Text> */}
           </View>
         </TouchableOpacity>
+        {/* THE BUTTON ADD AND MOINS */}
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            paddingHorizontal: 20,
+          }}>
+          <TouchableOpacity
+            onPress={() => console.log('moins')}
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <Text
+              style={{
+                fontSize: 25,
+                fontFamily: 'OpenSans-Bold',
+                color: 'red',
+              }}>
+              -
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => console.log('plus')}>
+            <Text
+              style={{
+                fontSize: 25,
+                fontFamily: 'OpenSans-Bold',
+                color: 'green',
+              }}>
+              +
+            </Text>
+          </TouchableOpacity>
+        </View>
         <View
           style={{
             backgroundColor: 'grey',

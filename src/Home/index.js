@@ -440,7 +440,7 @@ const HomeComponent = () => {
               {transform: [{translateX: transX, translateY: transY}]},
             ]}>
             <TapGestureHandler onHandlerStateChange={handleMagique}>
-              <Animated.View>
+              <Animated.View style={{alignItems: 'center'}}>
                 <Icon sizeIcon={50} icon={foodDelivery} />
                 <Text
                   style={{
@@ -466,7 +466,7 @@ const HomeComponent = () => {
               {transform: [{translateX: transXTwo, translateY: transYTwo}]},
             ]}>
             <TapGestureHandler onHandlerStateChange={handleDej}>
-              <Animated.View>
+              <Animated.View style={{alignItems: 'center'}}>
                 <Icon sizeIcon={50} icon={foodDelivery} />
                 <Text
                   style={{
@@ -494,7 +494,7 @@ const HomeComponent = () => {
               },
             ]}>
             <TapGestureHandler onHandlerStateChange={handleFaim}>
-              <Animated.View>
+              <Animated.View style={{alignItems: 'center'}}>
                 <Icon sizeIcon={50} icon={foodDelivery} />
                 <Text
                   style={{
@@ -522,7 +522,7 @@ const HomeComponent = () => {
               },
             ]}>
             <TapGestureHandler onHandlerStateChange={handleSupermarche}>
-              <Animated.View>
+              <Animated.View style={{alignItems: 'center'}}>
                 <Icon sizeIcon={50} icon={foodDelivery} />
                 <Text
                   style={{
@@ -548,7 +548,7 @@ const HomeComponent = () => {
               },
             ]}>
             <TapGestureHandler onHandlerStateChange={handleLivraison}>
-              <Animated.View>
+              <Animated.View style={{alignItems: 'center'}}>
                 <Icon sizeIcon={50} icon={foodDelivery} />
                 <Text
                   style={{
@@ -573,7 +573,7 @@ const HomeComponent = () => {
               },
             ]}>
             <TapGestureHandler onHandlerStateChange={handleBoutique}>
-              <Animated.View>
+              <Animated.View style={{alignItems: 'center'}}>
                 <Icon sizeIcon={50} icon={foodDelivery} />
                 <Text
                   style={{

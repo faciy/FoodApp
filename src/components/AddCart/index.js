@@ -19,9 +19,19 @@ const AddCartComponent = () => {
             // flexDirection: 'column',
             // justifyContent: 'space-between',
           }}>
-          <Text style={{fontSize: 30, fontWeight: 'bold'}}>Crêpe Au Sucre</Text>
-          <Text style={{fontSize: 20}}>2,000 XOF</Text>
-          <Text style={{textAlign: 'center', fontSize: 16}}>
+          <Text
+            style={{fontSize: 30, fontFamily: 'OpenSans-Bold', color: 'black'}}>
+            Crêpe Au Sucre
+          </Text>
+          <Text style={{fontSize: 20, fontFamily: 'OpenSans-Bold'}}>
+            2,000 XOF
+          </Text>
+          <Text
+            style={{
+              textAlign: 'center',
+              fontSize: 16,
+              fontFamily: 'OpenSans-Regular',
+            }}>
             Couche fine de pâte, faite à base de farine et d'oeufs agglomérés à
             du sucre
           </Text>

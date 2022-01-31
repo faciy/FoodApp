@@ -9,7 +9,7 @@ import {
   ImageBackground,
 } from 'react-native';
 import styles from './styles';
-import rightArrow from '../../../assets/images/rightArrow.png';
+import leftArrow from '../../../assets/images/leftArrow.png';
 import user from '../../../assets/images/user.png';
 import food from '../../../assets/images/food.jpg';
 import ingredient from '../../../assets/images/ingredient.jpg';
@@ -63,6 +63,7 @@ const DejSnackComponent = () => {
                   color: 'white',
                   fontSize: 25,
                   fontWeight: 'bold',
+                  fontFamily: 'OpenSans-Bold',
                 }}>
                 Baguette Francaise
               </Text>
@@ -126,6 +127,7 @@ const DejSnackComponent = () => {
                   color: 'white',
                   fontSize: 25,
                   fontWeight: 'bold',
+                  fontFamily: 'OpenSans-Bold',
                 }}>
                 Baguette Francaise
               </Text>
@@ -189,7 +191,7 @@ const DejSnackComponent = () => {
                 style={{
                   color: 'white',
                   fontSize: 25,
-                  fontWeight: 'bold',
+                  fontFamily: 'OpenSans-Regular',
                 }}>
                 Baguette Francaise
               </Text>
@@ -247,8 +249,13 @@ const DejSnackComponent = () => {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                 }}>
-                <Icon sizeIcon={15} icon={rightArrow} />
-                <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+                <Icon sizeIcon={15} icon={leftArrow} />
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontFamily: 'OpenSans-Regular',
+                    color: 'black',
+                  }}>
                   P'tit déj et snack
                 </Text>
                 <View
@@ -303,7 +310,14 @@ const DejSnackComponent = () => {
                   source={user}
                   style={{width: 18, height: 18, left: 70}}
                 />
-                <Text style={{fontSize: 18, left: 80}}>Lieu ou produit</Text>
+                <Text
+                  style={{
+                    fontSize: 18,
+                    left: 80,
+                    fontFamily: 'OpenSans-Regular',
+                  }}>
+                  Lieu ou produit
+                </Text>
               </View>
 
               {/* CATEGORIES */}
@@ -315,7 +329,7 @@ const DejSnackComponent = () => {
                     bgIcon="#eccc68"
                     onPress={() => setIsVisibleBottom(true)}
                   />
-                  <Text>Tout '{'>'}'' </Text>
+                  <Text style={{fontFamily: 'OpenSans-Regular'}}>Tout ></Text>
                 </View>
 
                 {/* BACKDROP  */}
@@ -328,7 +342,9 @@ const DejSnackComponent = () => {
                     bgIcon="#eccc68"
                     onPress={() => console.log('TOUT')}
                   />
-                  <Text>Francais </Text>
+                  <Text style={{fontFamily: 'OpenSans-Regular'}}>
+                    Francais{' '}
+                  </Text>
                 </View>
               </View>
 
@@ -339,7 +355,13 @@ const DejSnackComponent = () => {
                   marginTop: 20,
                 }}>
                 <Image source={user} style={{width: 20, height: 20}} />
-                <Text style={{left: 20, fontSize: 20, fontWeight: 'bold'}}>
+                <Text
+                  style={{
+                    left: 20,
+                    fontSize: 20,
+                    fontFamily: 'OpenSans-Bold',
+                    color: 'black',
+                  }}>
                   Le meilleur à proximité
                 </Text>
               </View>
@@ -361,7 +383,13 @@ const DejSnackComponent = () => {
                   marginTop: 20,
                 }}>
                 <Image source={user} style={{width: 20, height: 20}} />
-                <Text style={{left: 20, fontSize: 20, fontWeight: 'bold'}}>
+                <Text
+                  style={{
+                    left: 20,
+                    fontSize: 20,
+                    fontFamily: 'OpenSans-Bold',
+                    color: 'black',
+                  }}>
                   Promotions
                 </Text>
               </View>
@@ -386,9 +414,15 @@ const DejSnackComponent = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}>
-                <Text style={{fontSize: 25}}>
+                <Text style={{fontSize: 25, fontFamily: 'OpenSans-Regular'}}>
                   Recevez des {'\n'} crédits{' '}
-                  <Text style={{fontWeight: 'bold'}}>GRATUITS</Text>
+                  <Text
+                    style={{
+                      fontWeight: 'bold',
+                      fontFamily: 'OpenSans-Regular',
+                    }}>
+                    GRATUITS
+                  </Text>
                 </Text>
               </TouchableOpacity>
 

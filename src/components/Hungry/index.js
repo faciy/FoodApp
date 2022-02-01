@@ -1,8 +1,19 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Pressable,
+} from 'react-native';
 import styles from './styles.js';
 import user from '../../../assets/images/user.png';
+
 import foodDelivery from '../../../assets/images/foodDelivery.png';
+import pizza from '../../../assets/images/pizza.png';
+import recette from '../../../assets/images/recette.png';
+import restaurant from '../../../assets/images/restaurant.png';
+import burger from '../../../assets/images/burger.png';
 import Icon from '../common/Icon';
 import {
   PanGestureHandler,
@@ -28,8 +39,8 @@ const HungryComponent = () => {
             <Icon bgIcon="#ffeaa7" sizeIcon={20} icon={user} />
           </Animated.View>
         </TapGestureHandler>
-        <TouchableOpacity
-          onPress={() => console.log('huguygygu')}
+        <Pressable
+          onPress={() => navigate('SearchLocation')}
           style={{
             flexDirection: 'row',
             alignItems: 'center',
@@ -43,7 +54,7 @@ const HungryComponent = () => {
           }}>
           <Icon sizeIcon={15} icon={user} />
           <Text>Qu'est ce qu'on vous propose</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
 
       {/* BLOC  */}
@@ -66,7 +77,7 @@ const HungryComponent = () => {
                 borderRightWidth: 10,
                 borderBottomWidth: 2,
               }}>
-              <Icon sizeIcon={50} icon={foodDelivery} />
+              <Icon sizeIcon={50} icon={burger} />
               <Text
                 style={{
                   fontSize: 16,
@@ -96,7 +107,7 @@ const HungryComponent = () => {
                 borderRightWidth: 10,
                 borderBottomWidth: 2,
               }}>
-              <Icon sizeIcon={50} icon={foodDelivery} />
+              <Icon sizeIcon={50} icon={restaurant} />
               <Text
                 style={{
                   fontSize: 16,
@@ -133,7 +144,7 @@ const HungryComponent = () => {
                 borderRightWidth: 10,
                 borderBottomWidth: 2,
               }}>
-              <Icon sizeIcon={50} icon={foodDelivery} />
+              <Icon sizeIcon={50} icon={recette} />
               <Text
                 style={{
                   fontSize: 16,
@@ -164,7 +175,7 @@ const HungryComponent = () => {
                 borderRightWidth: 10,
                 borderBottomWidth: 2,
               }}>
-              <Icon sizeIcon={50} icon={foodDelivery} />
+              <Icon sizeIcon={50} icon={pizza} />
               <Text
                 style={{
                   fontSize: 16,
@@ -182,8 +193,9 @@ const HungryComponent = () => {
           <Text
             style={{
               fontSize: 30,
-              fontFamily: 'OpenSans-Regular',
+              fontFamily: 'OpenSans-Bold',
               color: 'black',
+              textAlign: 'center',
             }}>
             J'ai faim
           </Text>

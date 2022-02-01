@@ -7,9 +7,24 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
+  Pressable,
 } from 'react-native';
 import styles from './styles';
 import leftArrow from '../../../assets/images/leftArrow.png';
+import sucrerie from '../../../assets/images/sucrerie.png';
+import fastDelivery from '../../../assets/images/fastDelivery.png';
+import pouce from '../../../assets/images/pouce.png';
+import clock from '../../../assets/images/clock.png';
+import hamburger from '../../../assets/images/hamburger.png';
+import cheeseTwo from '../../../assets/images/cheeseTwo.png';
+import bakery from '../../../assets/images/bakery.png';
+import cheese from '../../../assets/images/cheese.png';
+import menu from '../../../assets/images/menu.png';
+import croissant from '../../../assets/images/croissant.png';
+import bread from '../../../assets/images/bread.png';
+import delivery from '../../../assets/images/delivery.png';
+import running from '../../../assets/images/running.png';
+import search from '../../../assets/images/search.png';
 import user from '../../../assets/images/user.png';
 import food from '../../../assets/images/food.jpg';
 import ingredient from '../../../assets/images/ingredient.jpg';
@@ -31,7 +46,7 @@ const datas = [
 const DejSnackComponent = () => {
   const [isButonActive, setIsButonActive] = useState(false);
   const [isVisibleBottom, setIsVisibleBottom] = useState(false);
-  const {navigate, toggleDrawer} = useNavigation();
+  const {navigate, toggleDrawer, goBack} = useNavigation();
 
   const handleOpen = () => {
     setIsVisibleBottom(true);
@@ -249,7 +264,7 @@ const DejSnackComponent = () => {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                 }}>
-                <Icon sizeIcon={15} icon={leftArrow} />
+                <Icon onPress={() => goBack()} sizeIcon={15} icon={leftArrow} />
                 <Text
                   style={{
                     fontSize: 20,
@@ -277,7 +292,10 @@ const DejSnackComponent = () => {
                       alignItems: 'center',
                       justifyContent: 'center',
                     }}>
-                    <Image source={user} style={{width: 15, height: 15}} />
+                    <Image
+                      source={fastDelivery}
+                      style={{width: 15, height: 15}}
+                    />
                   </TouchableOpacity>
 
                   <TouchableOpacity
@@ -291,13 +309,14 @@ const DejSnackComponent = () => {
                       alignItems: 'center',
                       justifyContent: 'center',
                     }}>
-                    <Image source={user} style={{width: 15, height: 15}} />
+                    <Image source={running} style={{width: 15, height: 15}} />
                   </TouchableOpacity>
                 </View>
               </View>
 
               {/* ZONE RECHERCHE  */}
-              <View
+              <Pressable
+                onPress={() => navigate('SearchLocation')}
                 style={{
                   backgroundColor: '#ced6e0',
                   flexDirection: 'row',
@@ -307,7 +326,7 @@ const DejSnackComponent = () => {
                   marginTop: 20,
                 }}>
                 <Image
-                  source={user}
+                  source={search}
                   style={{width: 18, height: 18, left: 70}}
                 />
                 <Text
@@ -318,14 +337,14 @@ const DejSnackComponent = () => {
                   }}>
                   Lieu ou produit
                 </Text>
-              </View>
+              </Pressable>
 
               {/* CATEGORIES */}
               <View style={{flexDirection: 'row'}}>
                 <View style={{marginTop: 20}}>
                   <Icon
                     sizeIcon={15}
-                    icon={user}
+                    icon={menu}
                     bgIcon="#eccc68"
                     onPress={() => setIsVisibleBottom(true)}
                   />
@@ -338,7 +357,7 @@ const DejSnackComponent = () => {
                 <View style={{marginTop: 20, marginLeft: 20}}>
                   <Icon
                     sizeIcon={15}
-                    icon={user}
+                    icon={cheese}
                     bgIcon="#eccc68"
                     onPress={() => console.log('TOUT')}
                   />
@@ -463,7 +482,13 @@ const DejSnackComponent = () => {
           height: '85%',
         }}>
         <View style={{}}>
-          <Text style={{fontSize: 25, padding: 20, fontWeight: 'bold'}}>
+          <Text
+            style={{
+              fontSize: 25,
+              padding: 20,
+              fontFamily: 'OpenSans-Bold',
+              color: 'black',
+            }}>
             Trier par
           </Text>
           <View
@@ -472,22 +497,28 @@ const DejSnackComponent = () => {
               padding: 20,
               justifyContent: 'space-between',
             }}>
-            <Chip icon="information" onPress={() => console.log('Pressed')}>
+            <Chip icon={clock} onPress={() => console.log('Pressed')}>
               Autour de nous
             </Chip>
-            <Chip icon="information" onPress={() => console.log('Pressed')}>
+            <Chip icon={pouce} onPress={() => console.log('Pressed')}>
               Meilleure note
             </Chip>
           </View>
           <View style={{padding: 20, width: '50%'}}>
-            <Chip icon="information" onPress={() => console.log('Pressed')}>
+            <Chip icon={fastDelivery} onPress={() => console.log('Pressed')}>
               Frais de livraison
             </Chip>
           </View>
 
           {/* TRIER PAR  */}
           <View style={{padding: 20}}>
-            <Text style={{fontSize: 25, fontWeight: 'bold'}}>
+            <Text
+              style={{
+                fontSize: 20,
+                fontFamily: 'OpenSans-Bold',
+                color: 'black',
+                textAlign: 'center',
+              }}>
               Types de P'tit déj et snacks
             </Text>
           </View>
@@ -501,16 +532,20 @@ const DejSnackComponent = () => {
                 padding: 20,
               }}>
               <View style={{alignItems: 'center'}}>
-                <Image source={user} style={{width: 30, height: 30}} />
-                <Text>Boulangerie</Text>
+                <Image source={bread} style={{width: 30, height: 30}} />
+                <Text style={{fontFamily: 'OpenSans-Regular'}}>
+                  Boulangerie
+                </Text>
               </View>
               <View style={{alignItems: 'center'}}>
-                <Image source={user} style={{width: 30, height: 30}} />
-                <Text>Burgers</Text>
+                <Image source={hamburger} style={{width: 30, height: 30}} />
+                <Text style={{fontFamily: 'OpenSans-Regular'}}>Burgers</Text>
               </View>
               <View style={{alignItems: 'center'}}>
-                <Image source={user} style={{width: 30, height: 30}} />
-                <Text>Cuisine locale</Text>
+                <Image source={bakery} style={{width: 30, height: 30}} />
+                <Text style={{fontFamily: 'OpenSans-Regular'}}>
+                  Cuisine locale
+                </Text>
               </View>
             </View>
             {/* DEUXIEME BLOC */}
@@ -521,22 +556,25 @@ const DejSnackComponent = () => {
                 padding: 20,
               }}>
               <View style={{alignItems: 'center'}}>
-                <Image source={user} style={{width: 30, height: 30}} />
-                <Text>Francais</Text>
+                <Image source={cheeseTwo} style={{width: 30, height: 30}} />
+                <Text style={{fontFamily: 'OpenSans-Regular'}}>Francais</Text>
               </View>
               <View style={{alignItems: 'center'}}>
-                <Image source={user} style={{width: 30, height: 30}} />
-                <Text>Pâtisserie</Text>
+                <Image source={croissant} style={{width: 30, height: 30}} />
+                <Text style={{fontFamily: 'OpenSans-Regular'}}>Pâtisserie</Text>
               </View>
               <View style={{alignItems: 'center'}}>
-                <Image source={user} style={{width: 30, height: 30}} />
-                <Text>Petit -déjeuner{'\n'}et snacks</Text>
+                <Image source={croissant} style={{width: 30, height: 30}} />
+                <Text
+                  style={{fontFamily: 'OpenSans-Regular', textAlign: 'center'}}>
+                  Petit -déjeuner{'\n'}et snacks
+                </Text>
               </View>
             </View>
 
             <View style={{padding: 20, alignItems: 'center'}}>
-              <Image source={user} style={{width: 30, height: 30}} />
-              <Text>Boulangerie</Text>
+              <Image source={sucrerie} style={{width: 30, height: 30}} />
+              <Text style={{fontFamily: 'OpenSans-Regular'}}>Sucrerie</Text>
             </View>
           </View>
           {/* BUTTON */}
@@ -551,7 +589,12 @@ const DejSnackComponent = () => {
                 justifyContent: 'center',
                 borderRadius: 50,
               }}>
-              <Text style={{fontSize: 20, color: 'white', fontWeight: 'bold'}}>
+              <Text
+                style={{
+                  fontSize: 20,
+                  color: 'white',
+                  fontFamily: 'OpenSans-Bold',
+                }}>
                 Appliquer
               </Text>
             </TouchableOpacity>

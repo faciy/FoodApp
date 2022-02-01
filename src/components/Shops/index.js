@@ -1,8 +1,16 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Pressable,
+} from 'react-native';
 import styles from './styles.js';
 import user from '../../../assets/images/user.png';
-import foodDelivery from '../../../assets/images/foodDelivery.png';
+import makeup from '../../../assets/images/makeup.png';
+import bouquet from '../../../assets/images/bouquet.png';
+import other from '../../../assets/images/other.png';
 import Icon from '../common/Icon';
 import {
   PanGestureHandler,
@@ -28,8 +36,8 @@ const ShopsComponent = () => {
             <Icon bgIcon="#ffeaa7" sizeIcon={20} icon={user} />
           </Animated.View>
         </TapGestureHandler>
-        <TouchableOpacity
-          onPress={() => console.log('huguygygu')}
+        <Pressable
+          onPress={() => navigate('SearchLocation')}
           style={{
             flexDirection: 'row',
             alignItems: 'center',
@@ -43,7 +51,7 @@ const ShopsComponent = () => {
           }}>
           <Icon sizeIcon={15} icon={user} />
           <Text>Qu'est ce qu'on vous propose</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
 
       {/* BLOC  */}
@@ -65,7 +73,7 @@ const ShopsComponent = () => {
                 borderRightWidth: 10,
                 borderBottomWidth: 2,
               }}>
-              <Icon sizeIcon={50} icon={foodDelivery} />
+              <Icon sizeIcon={50} icon={other} />
               <Text
                 style={{
                   fontSize: 16,
@@ -94,7 +102,7 @@ const ShopsComponent = () => {
                 borderRightWidth: 10,
                 borderBottomWidth: 2,
               }}>
-              <Icon sizeIcon={50} icon={foodDelivery} />
+              <Icon sizeIcon={50} icon={bouquet} />
               <Text
                 style={{
                   fontSize: 16,
@@ -130,7 +138,7 @@ const ShopsComponent = () => {
                 borderRightWidth: 10,
                 borderBottomWidth: 2,
               }}>
-              <Icon sizeIcon={50} icon={foodDelivery} />
+              <Icon sizeIcon={50} icon={makeup} />
               <Text
                 style={{
                   fontSize: 16,
@@ -150,8 +158,9 @@ const ShopsComponent = () => {
           <Text
             style={{
               fontSize: 30,
-              fontFamily: 'OpenSans-Regular',
+              fontFamily: 'OpenSans-Bold',
               color: 'black',
+              textAlign: 'center',
             }}>
             Boutiques
           </Text>

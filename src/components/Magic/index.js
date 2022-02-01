@@ -6,28 +6,46 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
+  Pressable,
 } from 'react-native';
-import user from '../../../assets/images/user.png';
+import closeButton from '../../../assets/images/closeButton.png';
+import question from '../../../assets/images/question.png';
 import Icon from '../common/Icon';
+import {useNavigation} from '@react-navigation/native';
 
 import styles from './styles';
 
 const MagicComponent = () => {
+  const {navigate, toggleDrawer, goBack} = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Image
-            source={user}
-            style={{width: 20, height: 20, tintColor: 'white'}}
-          />
-          <Text style={{color: 'white', fontSize: 20, left: 20}}>Magique</Text>
+          <Pressable onPress={() => goBack()}>
+            <Image
+              source={closeButton}
+              style={{width: 20, height: 20, tintColor: 'white'}}
+            />
+          </Pressable>
+          <Text
+            style={{
+              color: 'white',
+              fontSize: 20,
+              left: 20,
+              fontFamily: 'OpenSans-Bold',
+            }}>
+            Magique
+          </Text>
         </View>
-        <Icon onPress={() => {}} sizeIcon={25} icon={user} />
+        <Image
+          source={question}
+          style={{width: 20, height: 20, tintColor: 'white'}}
+        />
       </View>
 
       {/* BODY  */}
-      <View>
+      <View style={{marginTop: 20}}>
         <View
           style={{
             backgroundColor: '#dfe4ea',
@@ -37,10 +55,15 @@ const MagicComponent = () => {
             borderTopLeftRadius: 10,
             borderTopRightRadius: 10,
           }}>
-          <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+          <Text
+            style={{
+              fontSize: 20,
+              fontFamily: 'OpenSans-Regular',
+              color: 'black',
+            }}>
             Expliquer en detail ce dont vous avez besoin
           </Text>
-          <Text>
+          <Text style={{fontFamily: 'OpenSans-Light'}}>
             On vous livre ce que vous voulez. Soyez aussi précis que possible et
             ajouter une photo si vous en avez une!
           </Text>

@@ -14,7 +14,12 @@ import {
 import {requestLocationPermission} from '../utils/Permissions';
 import styles from './styles';
 import downArrow from '../../assets/images/downArrow.png';
-import foodDelivery from '../../assets/images/foodDelivery.png';
+import delivery from '../../assets/images/delivery.png';
+import magic from '../../assets/images/magic.png';
+import hungry from '../../assets/images/hungry.png';
+import supermarket from '../../assets/images/supermarket.png';
+import shoppingBag from '../../assets/images/shoppingBag.png';
+import breakfast from '../../assets/images/breakfast.png';
 import food from '../../assets/images/food.jpg';
 import rightArrow from '../../assets/images/rightArrow.png';
 import search from '../../assets/images/search.png';
@@ -441,7 +446,7 @@ const HomeComponent = () => {
             ]}>
             <TapGestureHandler onHandlerStateChange={handleMagique}>
               <Animated.View style={{alignItems: 'center'}}>
-                <Icon sizeIcon={50} icon={foodDelivery} />
+                <Icon sizeIcon={50} icon={magic} />
                 <Text
                   style={{
                     fontSize: 16,
@@ -467,7 +472,7 @@ const HomeComponent = () => {
             ]}>
             <TapGestureHandler onHandlerStateChange={handleDej}>
               <Animated.View style={{alignItems: 'center'}}>
-                <Icon sizeIcon={50} icon={foodDelivery} />
+                <Icon sizeIcon={50} icon={breakfast} />
                 <Text
                   style={{
                     fontSize: 16,
@@ -495,7 +500,7 @@ const HomeComponent = () => {
             ]}>
             <TapGestureHandler onHandlerStateChange={handleFaim}>
               <Animated.View style={{alignItems: 'center'}}>
-                <Icon sizeIcon={50} icon={foodDelivery} />
+                <Icon sizeIcon={50} icon={hungry} />
                 <Text
                   style={{
                     fontSize: 16,
@@ -523,7 +528,7 @@ const HomeComponent = () => {
             ]}>
             <TapGestureHandler onHandlerStateChange={handleSupermarche}>
               <Animated.View style={{alignItems: 'center'}}>
-                <Icon sizeIcon={50} icon={foodDelivery} />
+                <Icon sizeIcon={50} icon={supermarket} />
                 <Text
                   style={{
                     fontSize: 16,
@@ -549,7 +554,7 @@ const HomeComponent = () => {
             ]}>
             <TapGestureHandler onHandlerStateChange={handleLivraison}>
               <Animated.View style={{alignItems: 'center'}}>
-                <Icon sizeIcon={50} icon={foodDelivery} />
+                <Icon sizeIcon={50} icon={delivery} />
                 <Text
                   style={{
                     fontSize: 16,
@@ -574,7 +579,7 @@ const HomeComponent = () => {
             ]}>
             <TapGestureHandler onHandlerStateChange={handleBoutique}>
               <Animated.View style={{alignItems: 'center'}}>
-                <Icon sizeIcon={50} icon={foodDelivery} />
+                <Icon sizeIcon={50} icon={shoppingBag} />
                 <Text
                   style={{
                     fontSize: 16,

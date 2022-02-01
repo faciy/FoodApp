@@ -294,7 +294,7 @@ const DetailsRestaurant = () => {
                   flexDirection: 'row',
                   alignItems: 'center',
                   backgroundColor: isButonActive === false ? 'orange' : 'grey',
-                  width: '120%',
+                  width: '110%',
                   height: 40,
                   borderRadius: 20,
                 }}>

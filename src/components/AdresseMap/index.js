@@ -10,12 +10,13 @@ import {
 } from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 // import styles from './styles';
-import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import ScrollBottomSheet from 'react-native-scroll-bottom-sheet';
 import unlock from '../../../assets/images/unlock.png';
 import closeButton from '../../../assets/images/closeButton.png';
-import flag from '../../../assets/images/flag.png';
 import location from '../../../assets/images/location.png';
+import flag from '../../../assets/images/flag.png';
+import flagTwo from '../../../assets/images/flagTwo.png';
 import search from '../../../assets/images/search.png';
 import navigation from '../../../assets/images/navigation.png';
 import ArrowLeft from '../../../assets/images/ArrowLeft.png';
@@ -31,6 +32,38 @@ const datas = [{id: 1, name: 'charles'}];
 const AdresseMapComponent = () => {
   const {navigate, toggleDrawer, goBack} = useNavigation();
   const [indexHeight, setIndexHeight] = useState(null);
+
+  const origin = {latitude: 5.432887, longitude: -4.038892};
+
+  const destination = {latitude: 5.324281, longitude: -4.089586};
+
+  const departMarker = () => (
+    <View
+      style={{
+        position: 'absolute',
+
+        top: '25%',
+        left: '45%',
+      }}>
+      <Marker
+        coordinate={origin}
+        anchor={{x: 0.5, y: 0.5}}
+        identifier={'mk1'}
+        title="Utilisez cette position"
+        description="lieu de livraison">
+        {/* <View> */}
+        <Image
+          source={flagTwo}
+          style={{
+            width: 30,
+            height: 30,
+            tintColor: 'green',
+          }}
+        />
+        {/* </View> */}
+      </Marker>
+    </View>
+  );
 
   const sheetRef = useRef('BottomSheet');
 
@@ -51,12 +84,25 @@ const AdresseMapComponent = () => {
       <MapView
         provider={PROVIDER_GOOGLE}
         style={styles.map}
+        loadingEnabled={true}
+        loadingIndicatorColor="#606060"
+        followUserLocation={true}
+        showsUserLocation={true}
+        userLocationUpdateInterval={3000}
+        maxZoomLevel={50}
+        zoomEnabled={true}
+        showsMyLocationButton={true}
+        showsCompass={true}
+        showScale={true}
+        showsIndoors={true}
         region={{
-          latitude: 37.78825,
-          longitude: -122.4324,
+          latitude: Number(origin.latitude),
+          longitude: Number(origin.longitude),
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121,
         }}></MapView>
+      {departMarker()}
+
       <View style={{padding: 20, position: 'absolute'}}>
         <Icon
           onPress={() => goBack()}

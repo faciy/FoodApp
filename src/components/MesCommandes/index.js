@@ -72,7 +72,7 @@ const datas = [
 ];
 
 const MesCommandesComponent = () => {
-  const {navigate, goBack, DrawerActions} = useNavigation();
+  const {navigate, goBack, DrawerActions, toggleDrawer} = useNavigation();
 
   const renderItem = ({item}) => {
     return (
@@ -120,7 +120,7 @@ const MesCommandesComponent = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Icon onPress={() => goBack()} sizeIcon={15} icon={leftArrow} />
+        <Icon onPress={() => toggleDrawer()} sizeIcon={15} icon={leftArrow} />
         <Text style={{fontSize: 20, fontFamily: 'OpenSans-Bold'}}>
           Mes Commandes
         </Text>

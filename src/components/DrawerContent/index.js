@@ -56,7 +56,7 @@ const DrawerContent = props => {
           flexDirection: 'row',
           justifyContent: 'space-between',
         }}>
-        <TouchableOpacity onPress={() => goBack()}>
+        <TouchableOpacity onPress={() => navigate('Home')}>
           <Image source={leftArrow} style={{width: 20, height: 20}} />
         </TouchableOpacity>
         <TouchableOpacity

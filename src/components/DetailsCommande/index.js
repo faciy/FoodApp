@@ -16,6 +16,7 @@ import Container from '../common/Container';
 import Button from '../common/Button';
 import {useNavigation} from '@react-navigation/native';
 import {Backdrop} from 'react-native-backdrop';
+import DatePicker from 'react-native-date-picker';
 
 const DetailsCommandeComponent = () => {
   const {navigate, toggleDrawer, goBack} = useNavigation();
@@ -37,6 +38,10 @@ const DetailsCommandeComponent = () => {
   const handleClosePaiement = () => {
     setIsVisiblePaiement(false);
   };
+
+  const [date, setDate] = useState(new Date());
+
+  console.log('date', date);
 
   return (
     <View style={styles.container}>
@@ -323,7 +328,7 @@ const DetailsCommandeComponent = () => {
         }}>
         <View
           style={{
-            height: '30%',
+            // height: '30%',
             borderTopLeftRadius: 50,
             // alignItems: 'center',
           }}>
@@ -351,8 +356,9 @@ const DetailsCommandeComponent = () => {
               justifyContent: 'space-around',
               marginTop: 30,
             }}>
-            <Text style={{fontSize: 18}}>Aujourd'hui</Text>
-            <Text style={{fontSize: 18}}>20:30 - 16:30</Text>
+            {/* <Text style={{fontSize: 18}}>Aujourd'hui</Text>
+            <Text style={{fontSize: 18}}>20:30 - 16:30</Text> */}
+            <DatePicker date={date} onDateChange={setDate} />
           </View>
           <View
             style={{

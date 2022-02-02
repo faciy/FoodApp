@@ -10,7 +10,7 @@ import {useNavigation} from '@react-navigation/native';
 import * as Animatable from 'react-native-animatable';
 
 const HelpComponent = () => {
-  const {navigate, goBack} = useNavigation();
+  const {navigate, goBack, toggleDrawer} = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -21,7 +21,7 @@ const HelpComponent = () => {
             justifyContent: 'center',
             flexDirection: 'row',
           }}>
-          <Icon onPress={() => goBack()} sizeIcon={15} icon={leftArrow} />
+          <Icon onPress={() => toggleDrawer()} sizeIcon={15} icon={leftArrow} />
           <Text
             numberOfLines={1}
             style={{fontSize: 20, fontFamily: 'OpenSans-Bold'}}>
@@ -42,7 +42,7 @@ const HelpComponent = () => {
                 color: 'black',
                 fontFamily: 'OpenSans-Bold',
               }}>
-              Aide pour une commande
+              Aide pour une commandeff
             </Text>
           </View>
         </TouchableOpacity>

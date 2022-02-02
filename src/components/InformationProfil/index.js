@@ -9,12 +9,12 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 
 const InformationProfilComponent = () => {
-  const {navigate, goBack} = useNavigation();
+  const {navigate, goBack, toggleDrawer} = useNavigation();
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Icon onPress={() => goBack()} sizeIcon={15} icon={leftArrow} />
+        <Icon onPress={() => toggleDrawer()} sizeIcon={15} icon={leftArrow} />
         <Text style={{fontSize: 20}}>Mes Informations</Text>
       </View>
       <View style={styles.body}>

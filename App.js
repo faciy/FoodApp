@@ -3,15 +3,18 @@ import React, {useEffect} from 'react';
 import 'react-native-gesture-handler';
 import {PermissionsAndroid} from 'react-native';
 import AppNavContainer from './src/navigations';
-import {UserContext} from './src/utils/context/AuthContext';
+// import {UserContext} from './src/utils/context/AuthContext';
+import GlobalProvider from './src/context/Provider';
 
 const App = () => {
-  const [userInfo, setUserInfo] = React.useState(false);
+  // const [userInfo, setUserInfo] = React.useState(false);
 
   return (
-    <UserContext.Provider value={[userInfo, setUserInfo]}>
+    // <UserContext.Provider value={[userInfo, setUserInfo]}>
+    <GlobalProvider>
       <AppNavContainer />
-    </UserContext.Provider>
+    </GlobalProvider>
+    // </UserContext.Provider>
   );
 };
 

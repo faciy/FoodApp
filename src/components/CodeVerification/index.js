@@ -13,19 +13,25 @@ import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 import ButtonAuth from '../common/ButtonAuth';
-import {UserContext} from '../../utils/context/AuthContext';
+// import {UserContext} from '../../utils/context/AuthContext';
 import {ScrollView} from 'react-native-gesture-handler';
+import {GlobalContext} from '../../context/Provider';
+import loginUser from '../../context/actions/auth/loginUser';
 
 const CodeVerificationComponent = () => {
   const [recupCode, setRecupCode] = useState('');
   const {navigate} = useNavigation();
-  const [userInfo, setUserInfo] = useContext(UserContext);
+  const {authDispacth} = useContext(GlobalContext);
 
-  console.log('userInfo', userInfo);
+  console.log('authDispacth', authDispacth);
+
+  // const [userInfo, setUserInfo] = useContext(UserContext);
+
+  // console.log('userInfo', userInfo);
 
   const handleHome = () => {
-    console.log('Home');
-    setUserInfo(true);
+    loginUser()(authDispacth);
+    // setUserInfo(true);
   };
 
   return (

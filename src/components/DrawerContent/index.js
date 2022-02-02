@@ -20,10 +20,12 @@ import {DrawerItem} from '@react-navigation/drawer';
 import {CollapsibleHeaderScrollView} from 'react-native-collapsible-header-views';
 import {UserContext} from '../../utils/context/AuthContext';
 import * as Animatable from 'react-native-animatable';
+import logoutUser from '../../context/actions/auth/logoutUser';
+import {GlobalContext} from '../../context/Provider';
 
 const DrawerContent = props => {
   const {goBack, navigate} = useNavigation();
-  const [userInfo, setUserInfo] = useContext(UserContext);
+  const {authDispacth} = useContext(GlobalContext);
 
   const sheetRef = React.useRef('BottomSheet');
 
@@ -34,7 +36,7 @@ const DrawerContent = props => {
         onPress: () => console.log('Cancel Pressed'),
         style: 'cancel',
       },
-      {text: 'Deconnexion', onPress: () => setUserInfo(false)},
+      {text: 'Deconnexion', onPress: () => logoutUser()(authDispacth)},
     ]);
   };
 
